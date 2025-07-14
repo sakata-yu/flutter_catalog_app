@@ -7,8 +7,6 @@
 .buildlog/
 .history
 
-
-
 # Flutter repo-specific
 /bin/cache/
 /bin/internal/bootstrap.bat
@@ -117,3 +115,31 @@ app.*.symbols
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 !/dev/ci/**/Gemfile.lock
+
+# FVM Version Cache
+.fvm/
+
+# dotenv
+*.env
+
+# mac
+*.DS_Store
+
+# build_runner生成ファイル
+*.g.dart
+*.gen.dart
+*.freezed.dart
+
+# AndroidStudio固有設定
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/dictionaries/
+.idea/httpRequests/
+.idea/assetWizardSettings.xml
+.idea/gradle.xml
+.idea/misc.xml
+.idea/libraries/
+.idea/caches/
+.idea/vcs.xml
+.idea/modules.xml
