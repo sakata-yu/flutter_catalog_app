@@ -15,7 +15,7 @@ class CatalogItem {
 
 final List<CatalogItem> catalogItems = [
   CatalogItem(
-    title: "カウントアプリ",
+    title: "#1 カウントアプリ",
     detail: "最小アーキテクチャの理解",
     route: const CountRoute(),
   ),
