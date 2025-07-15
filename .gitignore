@@ -144,3 +144,4 @@ app.*.symbols
 .idea/caches/
 .idea/vcs.xml
 .idea/modules.xml
+.idea/devicemanager.xml
