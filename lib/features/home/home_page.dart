@@ -9,14 +9,16 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home')),
+      appBar: AppBar(title: const Text('Flutter Catalog')),
       body: ListView.separated(
         itemBuilder: (content, index) {
           final item = catalogItems[index];
           return Card(
             elevation: 2,
             child: ListTile(
+              leading: Icon(Icons.calculate),
               title: Text(item.title),
+              subtitle: Text(item.detail),
               onTap: () => context.router.push(item.route),
             ),
           );

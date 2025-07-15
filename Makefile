@@ -2,7 +2,7 @@
 
 .PHONY: all localization freezed format analyze build clean env
 
-all: build format analyze
+init: build env
 
 format:
 	bash scripts/format.sh

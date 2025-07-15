@@ -3,11 +3,20 @@ import 'package:catarog_app_flutter/core/router/app_router.dart';
 
 class CatalogItem {
   final String title;
+  final String detail;
   final PageRouteInfo route;
 
-  const CatalogItem({required this.title, required this.route});
+  const CatalogItem({
+    required this.title,
+    required this.detail,
+    required this.route,
+  });
 }
 
 final List<CatalogItem> catalogItems = [
-  CatalogItem(title: "カウントアプリ", route: const CountRoute()),
+  CatalogItem(
+    title: "カウントアプリ",
+    detail: "最小アーキテクチャの理解",
+    route: const CountRoute(),
+  ),
 ];
