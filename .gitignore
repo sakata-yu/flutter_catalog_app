@@ -127,6 +127,7 @@ app.*.symbols
 
 # build_runner生成ファイル
 *.g.dart
+*.gr.dart
 *.gen.dart
 *.freezed.dart
 
