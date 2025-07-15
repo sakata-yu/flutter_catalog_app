@@ -4,25 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-/// -------------------------------------------------------------------------
-/// 機能名: #1 カウントアプリ
-///
-/// 概要:
-/// - シンプルなカウントアプリです
-/// - 最小構成のアーキテクチャで作成しています
-///
-/// 実装内容:
-/// - +ボタンでカウントアップ
-/// - -ボタンでカウントダウン
-/// - Resetボタンでカウントを0に
-///
-/// 関連ファイル:
-/// - `lib/features/count/view/counter_text.dart`: カウンターUIの定義
-/// - `lib/features/count/data/count_state.dart`: 状態定義 (freezedなど)
-/// - `lib/features/count/view_model/count_view_model.dart`: 状態管理
-///
-/// -------------------------------------------------------------------------
-
 @RoutePage()
 class CountPage extends HookConsumerWidget {
   const CountPage({super.key});
