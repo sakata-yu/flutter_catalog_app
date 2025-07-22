@@ -23,7 +23,7 @@ class CatalogItems {
     CatalogItem(
       title: "#2 ログイン画面",
       detail: "フォームバリデーション実装",
-      route: CountRoute(),
+      route: LoginRoute(),
     ),
     CatalogItem(
       title: "#3 API通信",

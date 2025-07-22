@@ -1,6 +1,6 @@
 # Makefile
 
-.PHONY: all localization freezed format analyze build clean env
+.PHONY: init format analyze build clean env create-feature
 
 init: build env
 
@@ -18,3 +18,6 @@ clean:
 
 env:
 	bash scripts/prepare_env.sh
+
+create-feature:
+	@bash scripts/create_feature.sh $(cid) $(name)

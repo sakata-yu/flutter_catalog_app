@@ -20,13 +20,14 @@ Flutter での基本的な使い方、およびカスタマイズ方法も含ま
 ```
 lib/
 └── features/
-    └── [feature_name]/
+    └── catalog[cid]/
         ├── view/
         │   └── [feature_name]_page.dart
         ├── view_model/
         │   └── [feature_name]_view_model.dart
-        └── data/
-            └── [feature_name]_state.dart
+        │── data/
+        │   └── [feature_name]_state.dart
+        └── [feature_name]_page.dart
 ```
 
 ---
