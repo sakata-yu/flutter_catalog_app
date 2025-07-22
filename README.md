@@ -63,6 +63,10 @@ flutter_catalog_app/
 └── README.md
 </pre>
 
+### 新規画面作成コマンド
+```
+make create-feature cid=000 name=hogehoge
+```
 
 ### 参考
 
