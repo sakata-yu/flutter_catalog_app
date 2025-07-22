@@ -18,7 +18,7 @@ Flutter での基本的な使い方、およびカスタマイズ方法も含ま
 ```
 lib/
 └── features/
-    └── count/
+    └── catalog001/
         ├── view/
         │   └── counter_text.dart
         ├── view_model/
