@@ -26,9 +26,9 @@ class CatalogItems {
       route: LoginRoute(),
     ),
     CatalogItem(
-      title: "#3 API通信",
-      detail: "JSONPlaceholderを使ったCRUD",
-      route: CountRoute(),
+      title: "#3 SNS風画面",
+      detail: "JSONPlaceholderを使った基本的なAPI実装",
+      route: SnsRoute(),
     ),
     CatalogItem(
       title: "#4 カスタムダイアログ",
