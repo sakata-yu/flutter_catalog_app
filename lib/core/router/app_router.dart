@@ -6,6 +6,7 @@ import 'package:auto_route/auto_route.dart';
 import '../../features/home/home_page.dart';
 import '../../features/catalog001/count_page.dart';
 import '../../features/catalog002/login_page.dart';
+import '../../features/catalog003/sns_page.dart';
 
 part 'app_router.gr.dart'; // 自動生成ファイル
 
@@ -16,5 +17,6 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: HomeRoute.page, initial: true),
         AutoRoute(page: CountRoute.page),
         AutoRoute(page: LoginRoute.page),
+        AutoRoute(page: SnsRoute.page),
       ];
 }
