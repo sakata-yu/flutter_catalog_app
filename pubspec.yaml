@@ -46,6 +46,7 @@ dependencies:
   freezed_annotation: ^3.1.0
   retrofit: ^4.6.0
   retrofit_generator: ^9.7.0
+  fluttertoast: ^8.2.12
 
 dev_dependencies:
   flutter_test:

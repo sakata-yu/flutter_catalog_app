@@ -31,9 +31,9 @@ class CatalogItems {
       route: SnsRoute(),
     ),
     CatalogItem(
-      title: "#4 カスタムダイアログ",
-      detail: "AlertDialog・showModalBottomSheet",
-      route: CountRoute(),
+      title: "#4 ダイアログ系ウィジェット",
+      detail: "Snackbar・AlertDialog・BottomSheet・Toast",
+      route: CustomDialogRoute(),
     ),
     CatalogItem(
       title: "#5 権限を使用する機能",
