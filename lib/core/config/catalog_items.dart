@@ -36,9 +36,9 @@ class CatalogItems {
       route: CustomDialogRoute(),
     ),
     CatalogItem(
-      title: "#5 権限を使用する機能",
-      detail: "両OSでの権限取得の実装",
-      route: CountRoute(),
+      title: "#5 カメラ画面",
+      detail: "カメラを使った撮影機能の実装",
+      route: CameraRoute(),
     ),
   ];
 
