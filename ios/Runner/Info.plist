@@ -47,5 +47,7 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
   <string>カメラを使用します</string>
+  <key>NSLocationWhenInUseUsageDescription</key>
+  <string>現在地を表示するために位置情報を使用します</string>
 </dict>
 </plist>
