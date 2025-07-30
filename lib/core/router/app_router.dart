@@ -8,6 +8,8 @@ import '../../features/catalog001/count_page.dart';
 import '../../features/catalog002/login_page.dart';
 import '../../features/catalog003/sns_page.dart';
 import '../../features/catalog004/custom_dialog_page.dart';
+import '../../features/catalog005/camera_page.dart';
+import '../../features/catalog005/view/take_picture_page.dart';
 
 part 'app_router.gr.dart'; // 自動生成ファイル
 
@@ -20,5 +22,7 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: LoginRoute.page),
         AutoRoute(page: SnsRoute.page),
         AutoRoute(page: CustomDialogRoute.page),
+        AutoRoute(page: CameraRoute.page),
+        AutoRoute(page: TakePictureRoute.page),
       ];
 }

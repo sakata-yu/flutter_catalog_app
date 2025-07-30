@@ -61,7 +61,12 @@ class ${CLASS_NAME}Page extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(${NAME}ViewModelProvider);
-    return Container();
+    return Scaffold(
+      appBar: AppBar(title: const Text('${NAME}')),
+      body: Center(
+        child: Text(state.name),
+      ),
+    );
   }
 }
 EOF
