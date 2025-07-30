@@ -40,6 +40,11 @@ class CatalogItems {
       detail: "カメラを使った撮影機能の実装",
       route: CameraRoute(),
     ),
+    CatalogItem(
+      title: "#6 マップ画面",
+      detail: "FlutterMapを使用した位置情報の取得",
+      route: MapRoute(),
+    ),
   ];
 
   static const ui = [

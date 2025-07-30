@@ -10,6 +10,7 @@ import '../../features/catalog003/sns_page.dart';
 import '../../features/catalog004/custom_dialog_page.dart';
 import '../../features/catalog005/camera_page.dart';
 import '../../features/catalog005/view/take_picture_page.dart';
+import '../../features/catalog006/map_page.dart';
 
 part 'app_router.gr.dart'; // 自動生成ファイル
 
@@ -24,5 +25,6 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: CustomDialogRoute.page),
         AutoRoute(page: CameraRoute.page),
         AutoRoute(page: TakePictureRoute.page),
+        AutoRoute(page: MapRoute.page),
       ];
 }
