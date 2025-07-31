@@ -15,6 +15,7 @@ class TakePicturePage extends HookConsumerWidget {
     final state = ref.watch(cameraViewModelProvider);
     final viewModel = ref.read(cameraViewModelProvider.notifier);
 
+    /// 概要: カメラを初期化し、バックカメラで撮影できるように設定する関数
     Future<void> initCamera() async {
       final cameras = await availableCameras();
       final backCamera = cameras.firstWhere(
@@ -24,6 +25,7 @@ class TakePicturePage extends HookConsumerWidget {
       viewModel.initializeCamera(cameraController);
     }
 
+    /// 概要: 撮影し、撮影画像のパスをStateに保存する関数
     Future<void> takePicture() async {
       final controller = state.cameraController;
       if (controller == null || !controller.value.isInitialized) return;

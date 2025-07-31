@@ -14,6 +14,11 @@ class SnsViewModel extends AsyncNotifier<SnsState> {
 
   late final ApiClient apiClient;
 
+  /// 最初に呼ばれる関数、APIから投稿データを取得する
+  ///
+  /// Returns:
+  /// - 説明: APIが成功すればAPI結果、失敗すれば空の初期値を入れる
+  ///
   @override
   FutureOr<SnsState> build() async {
     apiClient = ref.watch(apiClientProvider);
@@ -21,6 +26,11 @@ class SnsViewModel extends AsyncNotifier<SnsState> {
     return result.value ?? SnsState();
   }
 
+  /// APIから投稿データを取得する関数
+  ///
+  /// Returns:
+  /// - 説明: API結果をFutureで返す
+  ///
   Future<AsyncValue<SnsState>> requestPosts() {
     return AsyncValue.guard(() async {
       final posts = await apiClient.getPosts();
@@ -28,11 +38,20 @@ class SnsViewModel extends AsyncNotifier<SnsState> {
     });
   }
 
+  /// 更新時に呼ばれる関数、APIから投稿データを取得する
   Future<void> refresh() async {
     state = state.copyWithPrevious(AsyncValue.loading());
     state = await requestPosts();
   }
 
+  /// 概要: 選択したポストのindexを保存し、コメント情報がなければAPIから取得する関数
+  ///
+  /// Parameters:
+  /// - [index] 説明: 選択したポストのindex
+  ///
+  /// Returns:
+  /// - 説明: 選択したポストのindex、それに対するコメント情報を保存する
+  ///
   void selectPost(int index) async {
     final selectedPost = state.value?.selectedPostIndex;
     if (selectedPost == index) {
@@ -64,6 +83,15 @@ class SnsViewModel extends AsyncNotifier<SnsState> {
     }
   }
 
+  /// ポストを投稿する関数
+  /// 
+  /// Parameters:
+  /// - [title] 説明: 投稿するタイトル
+  /// - [body] 説明: 投稿する本文
+  ///
+  /// Returns:
+  /// - 説明: 投稿が成功したかどうかの真偽
+  ///
   Future<bool> createPost(
     String title,
     String body,

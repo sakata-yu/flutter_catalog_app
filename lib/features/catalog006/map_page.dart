@@ -21,6 +21,11 @@ class MapPage extends HookConsumerWidget {
     final mapController = MapController();
     bool isInitialized = false;
 
+    /// 概要: 位置情報権限を取得し、現在位置を継続して取得する関数
+    ///
+    /// Returns:
+    /// - 説明: 現在情報を継続して取得するStreamSubscription
+    ///
     Future<StreamSubscription<Position>?> getCurrentLocationStream() async {
       bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
       if (!serviceEnabled && context.mounted) {

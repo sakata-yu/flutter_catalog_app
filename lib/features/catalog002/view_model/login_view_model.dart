@@ -14,6 +14,7 @@ class LoginViewModel extends StateNotifier<AsyncValue<LoginState>> {
   final Ref ref;
   late final AuthStateNotifier authController;
 
+  /// 概要: ログイン処理（仮）
   Future<void> login() async {
     state = AsyncValue.loading();
     state = await AsyncValue.guard(() async {
@@ -23,6 +24,7 @@ class LoginViewModel extends StateNotifier<AsyncValue<LoginState>> {
     });
   }
 
+  /// 概要: ログアウト処理（仮）
   Future<void> logout() async {
     state = AsyncValue.loading();
     state = await AsyncValue.guard(() async {
@@ -32,11 +34,21 @@ class LoginViewModel extends StateNotifier<AsyncValue<LoginState>> {
     });
   }
 
+  /// 概要: 入力されたメールアドレスをStateに保存する関数
+  ///
+  /// Parameters:
+  /// - [email] 説明: 入力されたemail
+  ///
   void updateEmail(String email) {
     final currentState = state.value ?? const LoginState();
     state = AsyncValue.data(currentState.copyWith(email: email));
   }
 
+  /// 概要: 入力されたパスワードをStateに保存する関数
+  ///
+  /// Parameters:
+  /// - [password]] 説明: 入力されたpassword
+  ///
   void updatePassword(String password) {
     final currentState = state.value ?? const LoginState();
     state = AsyncValue.data(currentState.copyWith(password: password));
