@@ -29,6 +29,7 @@ class LoginPage extends HookConsumerWidget {
       };
     }, []);
 
+    /// 概要: ログインボタンが押された時の処理
     void login() {
       if (formKey.currentState?.validate() ?? false) {
         // バリデーション成功
@@ -41,6 +42,7 @@ class LoginPage extends HookConsumerWidget {
       }
     }
 
+    /// 概要: ログアウトボタンが押された時の処理
     void logout() {
       viewModel.logout();
     }

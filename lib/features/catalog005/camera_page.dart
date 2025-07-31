@@ -18,6 +18,7 @@ class CameraPage extends HookConsumerWidget {
     final state = ref.watch(cameraViewModelProvider);
     final viewModel = ref.read(cameraViewModelProvider.notifier);
 
+    /// 概要: カメラ権限を取得し、カメラ撮影画面に遷移する関数
     Future<void> handleCameraLaunch() async {
       final status = await Permission.camera.request();
       if (status.isGranted && context.mounted) {
