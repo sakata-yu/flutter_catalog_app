@@ -7,8 +7,8 @@ class TransitionMyPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("マイページ"),
+    return const Center(
+      child: Text('マイページ'),
     );
   }
 }

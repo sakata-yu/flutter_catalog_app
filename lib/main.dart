@@ -3,12 +3,12 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'core/router/app_router.dart';
 
-final appRouter = AppRouter();
+final AppRouter appRouter = AppRouter();
 
 void main() {
   runApp(
-    ProviderScope(
-      child: const MyApp(),
+    const ProviderScope(
+      child: MyApp(),
     ),
   );
 }

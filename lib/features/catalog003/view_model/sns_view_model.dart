@@ -2,11 +2,13 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:catarog_app_flutter/core/network/request/post_request.dart';
+import 'package:catarog_app_flutter/core/network/response/comment_response.dart';
+import 'package:catarog_app_flutter/core/network/response/post_response.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../../core/network/api_client.dart';
 import '../data/sns_state.dart';
 
-final snsViewModelProvider =
+final AsyncNotifierProvider<SnsViewModel, SnsState> snsViewModelProvider =
     AsyncNotifierProvider<SnsViewModel, SnsState>(() => SnsViewModel());
 
 class SnsViewModel extends AsyncNotifier<SnsState> {
@@ -22,8 +24,8 @@ class SnsViewModel extends AsyncNotifier<SnsState> {
   @override
   FutureOr<SnsState> build() async {
     apiClient = ref.watch(apiClientProvider);
-    final result = await requestPosts();
-    return result.value ?? SnsState();
+    final AsyncValue<SnsState> result = await requestPosts();
+    return result.value ?? const SnsState();
   }
 
   /// APIから投稿データを取得する関数
@@ -33,14 +35,14 @@ class SnsViewModel extends AsyncNotifier<SnsState> {
   ///
   Future<AsyncValue<SnsState>> requestPosts() {
     return AsyncValue.guard(() async {
-      final posts = await apiClient.getPosts();
+      final List<PostResponse> posts = await apiClient.getPosts();
       return state.value?.copyWith(posts: posts) ?? SnsState(posts: posts);
     });
   }
 
   /// 更新時に呼ばれる関数、APIから投稿データを取得する
   Future<void> refresh() async {
-    state = state.copyWithPrevious(AsyncValue.loading());
+    state = state.copyWithPrevious(const AsyncValue<SnsState>.loading());
     state = await requestPosts();
   }
 
@@ -53,38 +55,43 @@ class SnsViewModel extends AsyncNotifier<SnsState> {
   /// - 説明: 選択したポストのindex、それに対するコメント情報を保存する
   ///
   void selectPost(int index) async {
-    final selectedPost = state.value?.selectedPostIndex;
+    final int? selectedPost = state.value?.selectedPostIndex;
     if (selectedPost == index) {
-      state = AsyncValue.data(
-          state.value?.copyWith(selectedPostIndex: -1) ?? SnsState());
+      state = AsyncValue<SnsState>.data(
+          state.value?.copyWith(selectedPostIndex: -1) ?? const SnsState());
     } else {
-      state = state.copyWithPrevious(AsyncValue.loading());
-      final selectedPostId = state.value?.posts[index].id;
-      final isAlreadyFetched =
+      state = state.copyWithPrevious(const AsyncValue<SnsState>.loading());
+      final int? selectedPostId = state.value?.posts[index].id;
+      final bool? isAlreadyFetched =
           state.value?.commentsByPost.containsKey(selectedPostId);
       if (selectedPostId == null) return;
       // すでにコメントデータがあるときはキャッシュから使用
       if (isAlreadyFetched == true) {
-        state = AsyncValue.data(
+        state = AsyncValue<SnsState>.data(
             state.value?.copyWith(selectedPostIndex: index) ??
                 SnsState(selectedPostIndex: index));
         return;
       }
-      final commentsByPost = state.value?.commentsByPost ?? {};
+      final Map<int, List<CommentResponse>> commentsByPost =
+          state.value?.commentsByPost ?? <int, List<CommentResponse>>{};
       state = await AsyncValue.guard(() async {
-        final comments = await apiClient.getComments(selectedPostId);
-        return state.value?.copyWith(commentsByPost: {
+        final List<CommentResponse> comments =
+            await apiClient.getComments(selectedPostId);
+        return state.value?.copyWith(
+                commentsByPost: <int, List<CommentResponse>>{
+                  ...commentsByPost,
+                  selectedPostId: comments
+                }) ??
+            SnsState(commentsByPost: <int, List<CommentResponse>>{
               ...commentsByPost,
               selectedPostId: comments
-            }) ??
-            SnsState(
-                commentsByPost: {...commentsByPost, selectedPostId: comments});
+            });
       });
     }
   }
 
   /// ポストを投稿する関数
-  /// 
+  ///
   /// Parameters:
   /// - [title] 説明: 投稿するタイトル
   /// - [body] 説明: 投稿する本文
@@ -96,20 +103,20 @@ class SnsViewModel extends AsyncNotifier<SnsState> {
     String title,
     String body,
   ) async {
-    final userId = Random().nextInt(10000);
-    final request = PostRequest(
+    final int userId = Random().nextInt(10000);
+    final PostRequest request = PostRequest(
       userId: userId,
       title: title,
       body: body,
     );
-    final result = await AsyncValue.guard(() async {
+    final AsyncValue<PostResponse> result = await AsyncValue.guard(() async {
       return await apiClient.createPost(request);
     });
     switch (result) {
-      case AsyncLoading():
-      case AsyncError():
+      case AsyncLoading<PostResponse>():
+      case AsyncError<PostResponse>():
         return false;
-      case AsyncValue():
+      case AsyncValue<PostResponse>():
         return true;
     }
   }

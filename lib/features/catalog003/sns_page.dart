@@ -1,3 +1,6 @@
+import 'package:catarog_app_flutter/core/network/response/comment_response.dart';
+import 'package:catarog_app_flutter/core/network/response/post_response.dart';
+import 'package:catarog_app_flutter/features/catalog003/data/sns_state.dart';
 import 'package:catarog_app_flutter/features/catalog003/view/post_item.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
@@ -12,30 +15,33 @@ class SnsPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(snsViewModelProvider);
-    final viewModel = ref.watch(snsViewModelProvider.notifier);
+    final AsyncValue<SnsState> state = ref.watch(snsViewModelProvider);
+    final SnsViewModel viewModel = ref.watch(snsViewModelProvider.notifier);
 
     return Scaffold(
       appBar: AppBar(title: const Text('SNS')),
       body: switch (state) {
-        AsyncLoading() => const Center(child: CircularProgressIndicator()),
-        AsyncError(:final error) => Center(child: Text(error.toString())),
-        AsyncValue(:final value) => RefreshIndicator(
+        AsyncLoading<SnsState>() =>
+          const Center(child: CircularProgressIndicator()),
+        AsyncError<SnsState>(:final Object error) =>
+          Center(child: Text(error.toString())),
+        AsyncValue<SnsState>(:final SnsState? value) => RefreshIndicator(
             child: ListView.builder(
               itemCount: value?.posts.length,
-              itemBuilder: (context, index) {
-                final post = value?.posts[index];
-                final comments = value?.commentsByPost[post?.id];
-                if (post == null) return SizedBox.shrink();
+              itemBuilder: (BuildContext context, int index) {
+                final PostResponse? post = value?.posts[index];
+                final List<CommentResponse>? comments =
+                    value?.commentsByPost[post?.id];
+                if (post == null) return const SizedBox.shrink();
                 return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: InkWell(
                     onTap: () {
                       viewModel.selectPost(index);
                     },
                     child: PostItem(
                       post: post,
-                      comments: comments ?? [],
+                      comments: comments ?? <CommentResponse>[],
                       isSelected: index == value?.selectedPostIndex,
                     ),
                   ),
@@ -49,11 +55,13 @@ class SnsPage extends HookConsumerWidget {
       },
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          final result = await showDialog(
-              context: context, builder: (context) => InputPostDialog());
-          final isPostCreated =
-              await viewModel.createPost(result['title'], result['body']);
-          final snackBar = SnackBar(
+          final Map<String, String>? result = await showDialog(
+              context: context,
+              builder: (BuildContext context) => const InputPostDialog());
+          if (result == null) return;
+          final bool isPostCreated = await viewModel.createPost(
+              result['title'] ?? '', result['body'] ?? '');
+          final SnackBar snackBar = SnackBar(
             content: Text(isPostCreated ? '投稿しました' : '投稿に失敗しました'),
             backgroundColor: isPostCreated ? Colors.green : Colors.red,
           );

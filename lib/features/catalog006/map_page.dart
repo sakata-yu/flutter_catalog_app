@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:catarog_app_flutter/features/catalog006/data/map_state.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -16,9 +17,9 @@ class MapPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(mapViewModelProvider);
-    final viewModel = ref.read(mapViewModelProvider.notifier);
-    final mapController = MapController();
+    final MapState state = ref.watch(mapViewModelProvider);
+    final MapViewModel viewModel = ref.read(mapViewModelProvider.notifier);
+    final MapController mapController = MapController();
     bool isInitialized = false;
 
     /// 概要: 位置情報権限を取得し、現在位置を継続して取得する関数
@@ -27,7 +28,7 @@ class MapPage extends HookConsumerWidget {
     /// - 説明: 現在情報を継続して取得するStreamSubscription
     ///
     Future<StreamSubscription<Position>?> getCurrentLocationStream() async {
-      bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+      final bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
       if (!serviceEnabled && context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('位置情報サービスが無効です')),
@@ -51,12 +52,12 @@ class MapPage extends HookConsumerWidget {
       }
 
       return Geolocator.getPositionStream(
-        locationSettings: LocationSettings(
+        locationSettings: const LocationSettings(
           accuracy: LocationAccuracy.best,
           distanceFilter: 5,
         ),
-      ).listen((position) {
-        final latLng = LatLng(position.latitude, position.longitude);
+      ).listen((Position position) {
+        final LatLng latLng = LatLng(position.latitude, position.longitude);
         viewModel.setCurrentPosition(latLng);
         if (isInitialized) {
           mapController.move(latLng, mapController.camera.zoom);
@@ -71,9 +72,9 @@ class MapPage extends HookConsumerWidget {
       }();
 
       return subscription?.cancel;
-    }, []);
+    }, <Object?>[]);
 
-    final currentPosition = state.currentPosition;
+    final LatLng? currentPosition = state.currentPosition;
 
     return Scaffold(
       appBar: AppBar(title: const Text('FlutterMap')),
@@ -85,18 +86,20 @@ class MapPage extends HookConsumerWidget {
                 initialCenter: currentPosition,
                 onMapReady: () async {
                   isInitialized = true;
-                  final position = await Geolocator.getCurrentPosition();
-                  final latLng = LatLng(position.latitude, position.longitude);
+                  final Position position =
+                      await Geolocator.getCurrentPosition();
+                  final LatLng latLng =
+                      LatLng(position.latitude, position.longitude);
                   mapController.move(latLng, mapController.camera.zoom);
                 },
               ),
-              children: [
+              children: <Widget>[
                 TileLayer(
                   urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
                   userAgentPackageName: 'com.example.your_app',
                 ),
                 MarkerLayer(
-                  markers: [
+                  markers: <Marker>[
                     Marker(
                       point: currentPosition,
                       width: 50,

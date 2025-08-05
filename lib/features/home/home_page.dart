@@ -8,20 +8,20 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final sections = [
-      {
+    final List<Map<String, Object>> sections = <Map<String, Object>>[
+      <String, Object>{
         'title': '共通機能',
         'items': CatalogItems.common,
       },
-      {
+      <String, Object>{
         'title': 'UI機能',
         'items': CatalogItems.ui,
       },
-      {
+      <String, Object>{
         'title': 'Android専用機能',
         'items': CatalogItems.android,
       },
-      {
+      <String, Object>{
         'title': 'iOS専用機能',
         'items': CatalogItems.ios,
       },
@@ -32,14 +32,16 @@ class HomePage extends StatelessWidget {
       body: ListView.builder(
         itemCount: sections.fold<int>(
           0,
-          (sum, section) => sum + 1 + (section['items'] as List).length,
+          (int sum, Map<String, Object> section) =>
+              sum + 1 + (section['items'] as List<CatalogItem>).length,
         ),
-        itemBuilder: (context, index) {
+        itemBuilder: (BuildContext context, int index) {
           int currentIndex = 0;
 
-          for (final section in sections) {
-            final title = section['title'] as String;
-            final items = section['items'] as List<CatalogItem>;
+          for (final Map<String, Object> section in sections) {
+            final String title = section['title'] as String;
+            final List<CatalogItem> items =
+                section['items'] as List<CatalogItem>;
 
             if (index == currentIndex) {
               return Padding(
@@ -54,7 +56,7 @@ class HomePage extends StatelessWidget {
             currentIndex += 1;
 
             if (index < currentIndex + items.length) {
-              final item = items[index - currentIndex];
+              final CatalogItem item = items[index - currentIndex];
               return ListTile(
                 title: Text(item.title),
                 subtitle: Text(item.detail),
@@ -65,7 +67,7 @@ class HomePage extends StatelessWidget {
             currentIndex += items.length;
           }
 
-          return SizedBox.shrink();
+          return const SizedBox.shrink();
         },
       ),
     );

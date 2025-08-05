@@ -23,18 +23,18 @@ class PostItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
         child: Column(
-          children: [
+          children: <Widget>[
             Row(
-              children: [
-                SizedBox(width: 8),
+              children: <Widget>[
+                const SizedBox(width: 8),
                 CircleAvatar(
                   child: Icon(AppConstants.iconList[
                       Random().nextInt(AppConstants.iconList.length)]),
                 ),
-                SizedBox(width: 8),
-                Text("hogehoge")
+                const SizedBox(width: 8),
+                const Text('hogehoge')
               ],
             ),
             ListTile(
@@ -49,8 +49,8 @@ class PostItem extends StatelessWidget {
                         itemCount: comments.length,
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
-                        itemBuilder: (context, index) {
-                          final comment = comments[index];
+                        itemBuilder: (BuildContext context, int index) {
+                          final CommentResponse comment = comments[index];
                           return CommentItem(comment: comment);
                         })
                     : const SizedBox.shrink(),

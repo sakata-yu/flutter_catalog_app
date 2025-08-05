@@ -1,9 +1,9 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../data/voice_state.dart';
 
-final voiceViewModelProvider =
+final StateNotifierProvider<VoiceViewModel, VoiceState> voiceViewModelProvider =
     StateNotifierProvider<VoiceViewModel, VoiceState>(
-        (ref) => VoiceViewModel());
+        (Ref ref) => VoiceViewModel());
 
 class VoiceViewModel extends StateNotifier<VoiceState> {
   VoiceViewModel() : super(const VoiceState());

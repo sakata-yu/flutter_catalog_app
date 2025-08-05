@@ -7,7 +7,7 @@ part 'auth_state.g.dart';
 @freezed
 abstract class AuthState with _$AuthState {
   const factory AuthState({
-    @Default(false) isLoggedIn,
+    @Default(false) bool isLoggedIn,
   }) = _AuthState;
 
   factory AuthState.fromJson(Map<String, dynamic> json) =>

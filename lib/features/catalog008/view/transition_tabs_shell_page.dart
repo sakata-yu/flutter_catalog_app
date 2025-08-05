@@ -10,23 +10,24 @@ class TransitionTabsShellPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter(
-      routes: const [
+      routes: const <PageRouteInfo<Object?>>[
         TransitionHomeRoute(),
         TransitionNoticeRoute(),
         TransitionMyRoute(),
       ],
-      transitionBuilder: (context, child, animation) {
-        final tabsRouter = AutoTabsRouter.of(context);
+      transitionBuilder:
+          (BuildContext context, Widget child, Animation<double> animation) {
+        final TabsRouter tabsRouter = AutoTabsRouter.of(context);
 
         return Scaffold(
           appBar: AppBar(
-            title: Text("BottomNavigationBar"),
+            title: const Text('BottomNavigationBar'),
           ),
           body: FadeTransition(opacity: animation, child: child),
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: tabsRouter.activeIndex,
             onTap: tabsRouter.setActiveIndex,
-            items: const [
+            items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
                 label: 'ホーム',

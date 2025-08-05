@@ -7,8 +7,8 @@ class TransitionHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("ホーム"),
+    return const Center(
+      child: Text('ホーム'),
     );
   }
 }

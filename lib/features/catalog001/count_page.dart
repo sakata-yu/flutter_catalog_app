@@ -1,3 +1,4 @@
+import 'package:catarog_app_flutter/features/catalog001/data/count_state.dart';
 import 'package:catarog_app_flutter/features/catalog001/view/counter_text.dart';
 import 'package:catarog_app_flutter/features/catalog001/view_model/count_view_model.dart';
 import 'package:flutter/material.dart';
@@ -10,33 +11,33 @@ class CountPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(countViewModelProvider);
-    final viewModel = ref.read(countViewModelProvider.notifier);
+    final CountState state = ref.watch(countViewModelProvider);
+    final CountViewModel viewModel = ref.read(countViewModelProvider.notifier);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("#1 カウントアプリ"),
+        title: const Text('#1 カウントアプリ'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        children: <Widget>[
           CounterText(count: state.count),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: <Widget>[
               ElevatedButton(
                 onPressed: () => viewModel.increment(),
-                child: Icon(Icons.add),
+                child: const Icon(Icons.add),
               ),
               ElevatedButton(
                 onPressed: () => viewModel.decrement(),
-                child: Icon(Icons.remove),
+                child: const Icon(Icons.remove),
               ),
             ],
           ),
           ElevatedButton(
             onPressed: () => viewModel.reset(),
-            child: Text("Reset"),
+            child: const Text('Reset'),
           ),
         ],
       ),

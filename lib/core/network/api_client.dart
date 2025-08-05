@@ -6,13 +6,14 @@ import 'request/post_request.dart';
 import 'response/comment_response.dart';
 import 'response/post_response.dart';
 
-part "api_client.g.dart";
+part 'api_client.g.dart';
 
-final apiClientProvider = Provider<ApiClient>((ref) {
+final Provider<ApiClient> apiClientProvider =
+    Provider<ApiClient>((Ref<ApiClient> ref) {
   return ApiClient(Dio(_dioOption));
 });
 
-final _dioOption = BaseOptions(
+final BaseOptions _dioOption = BaseOptions(
   baseUrl: 'https://jsonplaceholder.typicode.com',
   contentType: 'application/json',
 );

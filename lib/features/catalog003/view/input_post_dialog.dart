@@ -5,14 +5,14 @@ class InputPostDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final titleController = TextEditingController();
-    final bodyController = TextEditingController();
+    final TextEditingController titleController = TextEditingController();
+    final TextEditingController bodyController = TextEditingController();
 
     return AlertDialog(
       title: const Text('入力フォーム'),
       content: Column(
         mainAxisSize: MainAxisSize.min,
-        children: [
+        children: <Widget>[
           TextField(
             decoration: const InputDecoration(labelText: 'タイトル'),
             controller: titleController,
@@ -25,14 +25,14 @@ class InputPostDialog extends StatelessWidget {
           ),
         ],
       ),
-      actions: [
+      actions: <Widget>[
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
           child: const Text('キャンセル'),
         ),
         ElevatedButton(
           onPressed: () {
-            Navigator.of(context).pop({
+            Navigator.of(context).pop(<String, String>{
               'title': titleController.text,
               'body': bodyController.text,
             });

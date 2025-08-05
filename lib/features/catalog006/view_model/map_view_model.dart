@@ -2,9 +2,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:latlong2/latlong.dart';
 import '../data/map_state.dart';
 
-final mapViewModelProvider =
-    StateNotifierProvider<MapViewModel, MapState>(
-        (ref) => MapViewModel());
+final StateNotifierProvider<MapViewModel, MapState> mapViewModelProvider =
+    StateNotifierProvider<MapViewModel, MapState>((Ref ref) => MapViewModel());
 
 class MapViewModel extends StateNotifier<MapState> {
   MapViewModel() : super(const MapState());
