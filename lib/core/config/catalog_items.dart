@@ -45,6 +45,16 @@ class CatalogItems {
       detail: "FlutterMapを使用した位置情報の取得",
       route: MapRoute(),
     ),
+    CatalogItem(
+      title: "#7 音声入力",
+      detail: "音声入力機能",
+      route: VoiceRoute(),
+    ),
+    CatalogItem(
+      title: "#8 画面遷移",
+      detail: "AutoRouteを使った画面遷移",
+      route: TransitionRoute(),
+    ),
   ];
 
   static const ui = [
