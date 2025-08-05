@@ -1,6 +1,3 @@
-import 'dart:math';
-
-import 'package:catarog_app_flutter/core/config/app_constants.dart';
 import 'package:catarog_app_flutter/core/network/response/comment_response.dart';
 import 'package:flutter/material.dart';
 
