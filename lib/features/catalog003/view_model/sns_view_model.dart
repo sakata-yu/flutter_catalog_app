@@ -78,14 +78,19 @@ class SnsViewModel extends AsyncNotifier<SnsState> {
         final List<CommentResponse> comments =
             await apiClient.getComments(selectedPostId);
         return state.value?.copyWith(
-                commentsByPost: <int, List<CommentResponse>>{
-                  ...commentsByPost,
-                  selectedPostId: comments
-                }) ??
-            SnsState(commentsByPost: <int, List<CommentResponse>>{
-              ...commentsByPost,
-              selectedPostId: comments
-            });
+              commentsByPost: <int, List<CommentResponse>>{
+                ...commentsByPost,
+                selectedPostId: comments
+              },
+              selectedPostIndex: index,
+            ) ??
+            SnsState(
+              commentsByPost: <int, List<CommentResponse>>{
+                ...commentsByPost,
+                selectedPostId: comments
+              },
+              selectedPostIndex: index,
+            );
       });
     }
   }
