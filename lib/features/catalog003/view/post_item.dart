@@ -26,15 +26,14 @@ class PostItem extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
         child: Column(
           children: <Widget>[
-            Row(
+            const Row(
               children: <Widget>[
-                const SizedBox(width: 8),
+                SizedBox(width: 8),
                 CircleAvatar(
-                  child: Icon(AppConstants.iconList[
-                      Random().nextInt(AppConstants.iconList.length)]),
+                  child: Icon(Icons.ac_unit),
                 ),
-                const SizedBox(width: 8),
-                const Text('hogehoge')
+                SizedBox(width: 8),
+                Text('hogehoge')
               ],
             ),
             ListTile(

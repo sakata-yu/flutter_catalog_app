@@ -17,12 +17,11 @@ class CommentItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsetsGeometry.only(left: 32),
       child: ListTile(
-        title: Row(
+        title: const Row(
           children: <Widget>[
-            Icon(AppConstants
-                .iconList[Random().nextInt(AppConstants.iconList.length)]),
-            const SizedBox(width: 4),
-            const Text(
+            Icon(Icons.ac_unit),
+            SizedBox(width: 4),
+            Text(
               'hogehoge',
               style: TextStyle(fontSize: 12),
             ),
