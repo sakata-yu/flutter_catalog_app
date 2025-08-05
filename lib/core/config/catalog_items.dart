@@ -61,7 +61,7 @@ class CatalogItems {
     CatalogItem(
       title: '#101 チュートリアル画面',
       detail: 'Lottieを使ったアニメーション',
-      route: CountRoute(),
+      route: TutorialRoute(),
     ),
     CatalogItem(
       title: '#102 レスポンシブUI',
