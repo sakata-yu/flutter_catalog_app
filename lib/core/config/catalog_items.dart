@@ -50,6 +50,11 @@ class CatalogItems {
       detail: "音声入力機能",
       route: VoiceRoute(),
     ),
+    CatalogItem(
+      title: "#8 画面遷移",
+      detail: "AutoRouteを使った画面遷移",
+      route: TransitionRoute(),
+    ),
   ];
 
   static const ui = [
