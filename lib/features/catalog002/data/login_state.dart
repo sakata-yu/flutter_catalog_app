@@ -7,8 +7,8 @@ part 'login_state.g.dart';
 @freezed
 abstract class LoginState with _$LoginState {
   const factory LoginState({
-    @Default("") String email,
-    @Default("") String password,
+    @Default('') String email,
+    @Default('') String password,
   }) = _LoginState;
 
   factory LoginState.fromJson(Map<String, dynamic> json) =>

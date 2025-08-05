@@ -27,7 +27,7 @@ part 'app_router.gr.dart'; // 自動生成ファイル
 @AutoRouterConfig(replaceInRouteName: 'Page,Route')
 class AppRouter extends RootStackRouter {
   @override
-  List<AutoRoute> get routes => [
+  List<AutoRoute> get routes => <AutoRoute>[
         AutoRoute(page: HomeRoute.page, initial: true),
         AutoRoute(page: CountRoute.page),
         AutoRoute(page: LoginRoute.page),
@@ -43,7 +43,7 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: TransitionSimpleRoute.page),
         AutoRoute(
           page: TransitionTabsShellRoute.page,
-          children: [
+          children: <AutoRoute>[
             AutoRoute(page: TransitionHomeRoute.page),
             AutoRoute(page: TransitionNoticeRoute.page),
             AutoRoute(page: TransitionMyRoute.page),
@@ -51,7 +51,7 @@ class AppRouter extends RootStackRouter {
         ),
         AutoRoute(
           page: TransitionDrawerRoute.page,
-          children: [
+          children: <AutoRoute>[
             AutoRoute(page: TransitionHomeRoute.page, path: ''),
             AutoRoute(page: TransitionNoticeRoute.page),
             AutoRoute(page: TransitionMyRoute.page),

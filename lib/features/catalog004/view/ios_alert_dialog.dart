@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 class IosAlertDialog extends StatelessWidget {
   const IosAlertDialog({super.key});
@@ -7,16 +6,16 @@ class IosAlertDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoAlertDialog(
-      title: Text("タイトル"),
-      content: Text("コンテンツ"),
-      actions: [
+      title: const Text('タイトル'),
+      content: const Text('コンテンツ'),
+      actions: <Widget>[
         CupertinoDialogAction(
           onPressed: () => Navigator.of(context).pop(true),
-          child: Text("OK"),
+          child: const Text('OK'),
         ),
         CupertinoDialogAction(
           onPressed: () => Navigator.of(context).pop(false),
-          child: Text("キャンセル"),
+          child: const Text('キャンセル'),
         ),
       ],
     );

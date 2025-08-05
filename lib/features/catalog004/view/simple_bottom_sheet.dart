@@ -21,33 +21,38 @@ class SimpleBottomSheet extends StatelessWidget {
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: [
+        children: <Widget>[
           Text(
-            "タイトル",
+            'タイトル',
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          SizedBox(height: 8),
-          Text(
-            "コンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツ",
+          const SizedBox(height: 8),
+          const Text(
+            '''
+            コンテンツコンテンツコンテンツコンテンツコンテンツ
+            コンテンツコンテンツコンテンツコンテンツコンテンツ
+            コンテンツコンテンツコンテンツコンテンツコンテンツ
+            コンテンツコンテンツコンテンツ
+            ''',
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
+            children: <Widget>[
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop(false);
                   onCancelPressed();
                 },
-                child: Text("キャンセル"),
+                child: const Text('キャンセル'),
               ),
               ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).pop(true);
                   onOkPressed();
                 },
-                child: Text("OK"),
+                child: const Text('OK'),
               ),
             ],
           )

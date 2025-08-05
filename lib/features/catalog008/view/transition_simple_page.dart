@@ -9,10 +9,10 @@ class TransitionSimplePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("シンプルなページ"),
+        title: const Text('シンプルなページ'),
       ),
-      body: Center(
-        child: Text("シンプルなページ"),
+      body: const Center(
+        child: Text('シンプルなページ'),
       ),
     );
   }

@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:catarog_app_flutter/features/catalog002/data/auth_state.dart';
 import 'package:catarog_app_flutter/features/catalog002/data/auth_state_notifier.dart';
+import 'package:catarog_app_flutter/features/catalog002/data/login_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -12,14 +14,15 @@ class LoginPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(loginViewModelProvider);
-    final authState = ref.watch(authProvider);
-    final viewModel = ref.watch(loginViewModelProvider.notifier);
-    final formKey = useMemoized(() => GlobalKey<FormState>());
-    final emailController = useTextEditingController();
-    final passwordController = useTextEditingController();
+    final AsyncValue<LoginState> state = ref.watch(loginViewModelProvider);
+    final AuthState authState = ref.watch(authProvider);
+    final LoginViewModel viewModel = ref.watch(loginViewModelProvider.notifier);
+    final GlobalKey<FormState> formKey =
+        useMemoized(() => GlobalKey<FormState>());
+    final TextEditingController emailController = useTextEditingController();
+    final TextEditingController passwordController = useTextEditingController();
 
-    final userState = authState.isLoggedIn ? "ログイン中" : "ログアウト中";
+    final String userState = authState.isLoggedIn ? 'ログイン中' : 'ログアウト中';
 
     useEffect(() {
       // 画面破棄時にメモリリークを防ぐためdispose
@@ -27,7 +30,7 @@ class LoginPage extends HookConsumerWidget {
         emailController.dispose();
         passwordController.dispose();
       };
-    }, []);
+    }, <Object?>[]);
 
     /// 概要: ログインボタンが押された時の処理
     void login() {
@@ -47,7 +50,7 @@ class LoginPage extends HookConsumerWidget {
       viewModel.logout();
     }
 
-    ref.listen(authProvider, (previous, next) {
+    ref.listen(authProvider, (AuthState? previous, AuthState next) {
       if (next.isLoggedIn) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('ログイン成功')),
@@ -58,22 +61,24 @@ class LoginPage extends HookConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('ログイン画面')),
       body: switch (state) {
-        AsyncLoading() => const Center(child: CircularProgressIndicator()),
-        AsyncError(:final error) => Center(child: Text(error.toString())),
-        AsyncValue() => Padding(
+        AsyncLoading<LoginState>() =>
+          const Center(child: CircularProgressIndicator()),
+        AsyncError<LoginState>(:final Object error) =>
+          Center(child: Text(error.toString())),
+        AsyncValue<LoginState>() => Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
-              children: [
-                Text('ログイン状態： ${userState}'),
+              children: <Widget>[
+                Text('ログイン状態： $userState'),
                 Form(
                   key: formKey,
                   child: Column(
-                    children: [
+                    children: <Widget>[
                       TextFormField(
                         controller: emailController,
                         decoration: const InputDecoration(labelText: 'メールアドレス'),
                         keyboardType: TextInputType.emailAddress,
-                        validator: (value) {
+                        validator: (String? value) {
                           if (value == null || value.isEmpty) {
                             return 'メールアドレスを入力してください';
                           }
@@ -89,7 +94,7 @@ class LoginPage extends HookConsumerWidget {
                         controller: passwordController,
                         decoration: const InputDecoration(labelText: 'パスワード'),
                         obscureText: true,
-                        validator: (value) {
+                        validator: (String? value) {
                           if (value == null || value.isEmpty) {
                             return 'パスワードを入力してください';
                           }
@@ -103,12 +108,12 @@ class LoginPage extends HookConsumerWidget {
                       const SizedBox(height: 32),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
+                        children: <Widget>[
                           ElevatedButton(
                             onPressed: login,
                             child: const Text('ログイン'),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 16,
                           ),
                           ElevatedButton(

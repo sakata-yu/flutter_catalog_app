@@ -15,28 +15,28 @@ class TransitionDrawerPage extends StatelessWidget {
     }
 
     return AutoRouter(
-      builder: (context, child) {
+      builder: (BuildContext context, Widget child) {
         return Scaffold(
           appBar: AppBar(
-            title: Text("NavigationDrawer"),
+            title: const Text('NavigationDrawer'),
           ),
           drawer: Drawer(
             child: ListView(
-              children: [
-                DrawerHeader(
-                  child: Text("メニュー"),
+              children: <Widget>[
+                const DrawerHeader(
+                  child: Text('メニュー'),
                 ),
                 ListTile(
-                  title: Text("ホーム"),
-                  onTap: () => tapDrawerItem(TransitionHomeRoute()),
+                  title: const Text('ホーム'),
+                  onTap: () => tapDrawerItem(const TransitionHomeRoute()),
                 ),
                 ListTile(
-                  title: Text("お知らせ"),
-                  onTap: () => tapDrawerItem(TransitionNoticeRoute()),
+                  title: const Text('お知らせ'),
+                  onTap: () => tapDrawerItem(const TransitionNoticeRoute()),
                 ),
                 ListTile(
-                  title: Text("マイページ"),
-                  onTap: () => tapDrawerItem(TransitionMyRoute()),
+                  title: const Text('マイページ'),
+                  onTap: () => tapDrawerItem(const TransitionMyRoute()),
                 ),
               ],
             ),

@@ -15,22 +15,22 @@ class CommentItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsGeometry.only(left: 32),
+      padding: const EdgeInsetsGeometry.only(left: 32),
       child: ListTile(
         title: Row(
-          children: [
+          children: <Widget>[
             Icon(AppConstants
                 .iconList[Random().nextInt(AppConstants.iconList.length)]),
-            SizedBox(width: 4),
-            Text(
-              "hogehoge",
+            const SizedBox(width: 4),
+            const Text(
+              'hogehoge',
               style: TextStyle(fontSize: 12),
             ),
           ],
         ),
         subtitle: Text(
           comment.body,
-          style: TextStyle(fontSize: 10),
+          style: const TextStyle(fontSize: 10),
         ),
       ),
     );

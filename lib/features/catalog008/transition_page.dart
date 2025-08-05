@@ -10,15 +10,15 @@ class TransitionPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     void transitSimplePage() {
-      context.router.push(TransitionSimpleRoute());
+      context.router.push(const TransitionSimpleRoute());
     }
 
     void transitBottomNavigationPage() {
-      context.router.push(TransitionTabsShellRoute());
+      context.router.push(const TransitionTabsShellRoute());
     }
 
     void transitDrawerPage() {
-      context.router.push(TransitionDrawerRoute());
+      context.router.push(const TransitionDrawerRoute());
     }
 
     return Scaffold(
@@ -26,18 +26,18 @@ class TransitionPage extends HookConsumerWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             ElevatedButton(
               onPressed: transitSimplePage,
-              child: Text("シンプルな遷移"),
+              child: const Text('シンプルな遷移'),
             ),
             ElevatedButton(
               onPressed: transitBottomNavigationPage,
-              child: Text("BottomNavigationBarを表示するページ"),
+              child: const Text('BottomNavigationBarを表示するページ'),
             ),
             ElevatedButton(
               onPressed: transitDrawerPage,
-              child: Text("NavigationDrawerを表示するページ"),
+              child: const Text('NavigationDrawerを表示するページ'),
             ),
           ],
         ),

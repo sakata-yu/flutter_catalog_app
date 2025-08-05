@@ -2,9 +2,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../data/count_state.dart';
 
-final countViewModelProvider =
+final StateNotifierProvider<CountViewModel, CountState> countViewModelProvider =
     StateNotifierProvider<CountViewModel, CountState>(
-        (ref) => CountViewModel());
+        (Ref ref) => CountViewModel());
 
 class CountViewModel extends StateNotifier<CountState> {
   CountViewModel() : super(const CountState(count: 0));

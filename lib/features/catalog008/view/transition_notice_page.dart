@@ -7,8 +7,8 @@ class TransitionNoticePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("お知らせ"),
+    return const Center(
+      child: Text('お知らせ'),
     );
   }
 }

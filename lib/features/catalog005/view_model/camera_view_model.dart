@@ -2,9 +2,10 @@ import 'package:camera/camera.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../data/camera_state.dart';
 
-final cameraViewModelProvider =
+final StateNotifierProvider<CameraViewModel, CameraState>
+    cameraViewModelProvider =
     StateNotifierProvider<CameraViewModel, CameraState>(
-        (ref) => CameraViewModel());
+        (Ref ref) => CameraViewModel());
 
 class CameraViewModel extends StateNotifier<CameraState> {
   CameraViewModel() : super(const CameraState());
@@ -18,7 +19,7 @@ class CameraViewModel extends StateNotifier<CameraState> {
     if (controller == null) return;
     state = state.copyWith(
       cameraController: controller,
-      imagePath: "",
+      imagePath: '',
     );
   }
 

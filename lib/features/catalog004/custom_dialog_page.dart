@@ -16,25 +16,26 @@ class CustomDialogPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "ダイアログ系ウィジェット",
+        title: const Text(
+          'ダイアログ系ウィジェット',
         ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        children: <Widget>[
           Center(
             child: ElevatedButton(
               onPressed: () {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text("スナックバーを表示しました"),
+                    content: const Text('スナックバーを表示しました'),
                     action: SnackBarAction(
-                      label: "アクション",
-                      onPressed: () => {
+                      label: 'アクション',
+                      onPressed: () => <ScaffoldFeatureController<SnackBar,
+                          SnackBarClosedReason>>{
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text("スナックバーアクションが実行されました"),
+                          const SnackBar(
+                            content: Text('スナックバーアクションが実行されました'),
                           ),
                         ),
                       },
@@ -42,60 +43,60 @@ class CustomDialogPage extends HookConsumerWidget {
                   ),
                 );
               },
-              child: Text(
-                "スナックバー表示",
+              child: const Text(
+                'スナックバー表示',
               ),
             ),
           ),
           Center(
             child: ElevatedButton(
               onPressed: () async {
-                final result = await showDialog(
+                final bool result = await showDialog(
                   context: context,
-                  builder: (context) => AndroidAlertDialog(),
+                  builder: (BuildContext context) => const AndroidAlertDialog(),
                 );
                 if (result && context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text("OKが押されました"),
+                    const SnackBar(
+                      content: Text('OKが押されました'),
                     ),
                   );
                 } else if (!result && context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text("キャンセルが押されました"),
+                    const SnackBar(
+                      content: Text('キャンセルが押されました'),
                     ),
                   );
                 }
               },
-              child: Text(
-                "Androidアラートダイアログ表示",
+              child: const Text(
+                'Androidアラートダイアログ表示',
               ),
             ),
           ),
           Center(
             child: CupertinoButton(
               onPressed: () async {
-                final result = await showCupertinoDialog(
+                final bool result = await showCupertinoDialog(
                   context: context,
-                  builder: (context) => IosAlertDialog(),
+                  builder: (BuildContext context) => const IosAlertDialog(),
                 );
                 if (result && context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text("OKが押されました"),
+                    const SnackBar(
+                      content: Text('OKが押されました'),
                     ),
                   );
                 } else if (!result && context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text("キャンセルが押されました"),
+                    const SnackBar(
+                      content: Text('キャンセルが押されました'),
                     ),
                   );
                 }
               },
-              child: Text(
-                "iOSアラートダイアログ表示",
+              child: const Text(
+                'iOSアラートダイアログ表示',
               ),
             ),
           ),
@@ -104,26 +105,26 @@ class CustomDialogPage extends HookConsumerWidget {
               onPressed: () {
                 showModalBottomSheet(
                   context: context,
-                  builder: (context) => SimpleBottomSheet(
+                  builder: (BuildContext context) => SimpleBottomSheet(
                     onOkPressed: () {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text("OKが押されました"),
+                        const SnackBar(
+                          content: Text('OKが押されました'),
                         ),
                       );
                     },
                     onCancelPressed: () {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text("キャンセルが押されました"),
+                        const SnackBar(
+                          content: Text('キャンセルが押されました'),
                         ),
                       );
                     },
                   ),
                 );
               },
-              child: Text(
-                "ボトムシート表示",
+              child: const Text(
+                'ボトムシート表示',
               ),
             ),
           ),
@@ -131,14 +132,14 @@ class CustomDialogPage extends HookConsumerWidget {
             child: ElevatedButton(
               onPressed: () {
                 Fluttertoast.showToast(
-                  msg: "Android風トースト",
+                  msg: 'Android風トースト',
                   toastLength: Toast.LENGTH_SHORT,
                   gravity: ToastGravity.BOTTOM,
                   fontSize: 16.0,
                 );
               },
-              child: Text(
-                "Android風トースト",
+              child: const Text(
+                'Android風トースト',
               ),
             ),
           ),

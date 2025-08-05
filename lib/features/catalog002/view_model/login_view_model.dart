@@ -2,12 +2,14 @@ import 'package:catarog_app_flutter/features/catalog002/data/auth_state_notifier
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../data/login_state.dart';
 
-final loginViewModelProvider =
+final StateNotifierProvider<LoginViewModel, AsyncValue<LoginState>>
+    loginViewModelProvider =
     StateNotifierProvider<LoginViewModel, AsyncValue<LoginState>>(
-        (ref) => LoginViewModel(ref));
+        (Ref ref) => LoginViewModel(ref));
 
 class LoginViewModel extends StateNotifier<AsyncValue<LoginState>> {
-  LoginViewModel(this.ref) : super(const AsyncValue.data(LoginState())) {
+  LoginViewModel(this.ref)
+      : super(const AsyncValue<LoginState>.data(LoginState())) {
     authController = ref.read(authProvider.notifier);
   }
 
@@ -16,21 +18,21 @@ class LoginViewModel extends StateNotifier<AsyncValue<LoginState>> {
 
   /// 概要: ログイン処理（仮）
   Future<void> login() async {
-    state = AsyncValue.loading();
+    state = const AsyncValue<LoginState>.loading();
     state = await AsyncValue.guard(() async {
-      await Future.delayed(const Duration(seconds: 2));
+      await Future<bool>.delayed(const Duration(seconds: 2));
       authController.login();
-      return state.value?.copyWith() ?? LoginState();
+      return state.value?.copyWith() ?? const LoginState();
     });
   }
 
   /// 概要: ログアウト処理（仮）
   Future<void> logout() async {
-    state = AsyncValue.loading();
+    state = const AsyncValue<LoginState>.loading();
     state = await AsyncValue.guard(() async {
-      await Future.delayed(const Duration(seconds: 1));
+      await Future<bool>.delayed(const Duration(seconds: 1));
       authController.logout();
-      return state.value?.copyWith() ?? LoginState();
+      return state.value?.copyWith() ?? const LoginState();
     });
   }
 
@@ -40,8 +42,8 @@ class LoginViewModel extends StateNotifier<AsyncValue<LoginState>> {
   /// - [email] 説明: 入力されたemail
   ///
   void updateEmail(String email) {
-    final currentState = state.value ?? const LoginState();
-    state = AsyncValue.data(currentState.copyWith(email: email));
+    final LoginState currentState = state.value ?? const LoginState();
+    state = AsyncValue<LoginState>.data(currentState.copyWith(email: email));
   }
 
   /// 概要: 入力されたパスワードをStateに保存する関数
@@ -50,7 +52,8 @@ class LoginViewModel extends StateNotifier<AsyncValue<LoginState>> {
   /// - [password]] 説明: 入力されたpassword
   ///
   void updatePassword(String password) {
-    final currentState = state.value ?? const LoginState();
-    state = AsyncValue.data(currentState.copyWith(password: password));
+    final LoginState currentState = state.value ?? const LoginState();
+    state =
+        AsyncValue<LoginState>.data(currentState.copyWith(password: password));
   }
 }

@@ -6,16 +6,16 @@ class AndroidAlertDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text("タイトル"),
-      content: Text("コンテンツ"),
-      actions: [
+      title: const Text('タイトル'),
+      content: const Text('コンテンツ'),
+      actions: <Widget>[
         TextButton(
           onPressed: () => Navigator.of(context).pop(true),
-          child: Text("OK"),
+          child: const Text('OK'),
         ),
         TextButton(
           onPressed: () => Navigator.of(context).pop(false),
-          child: Text("キャンセル"),
+          child: const Text('キャンセル'),
         ),
       ],
     );

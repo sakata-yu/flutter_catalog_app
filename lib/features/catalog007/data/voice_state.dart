@@ -5,6 +5,6 @@ part 'voice_state.freezed.dart';
 @freezed
 abstract class VoiceState with _$VoiceState {
   const factory VoiceState({
-    @Default("") String speechResult,
+    @Default('') String speechResult,
   }) = _VoiceState;
 }

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:catarog_app_flutter/core/router/app_router.dart';
+import 'package:catarog_app_flutter/features/catalog005/data/camera_state.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -15,23 +16,24 @@ class CameraPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(cameraViewModelProvider);
-    final viewModel = ref.read(cameraViewModelProvider.notifier);
+    final CameraState state = ref.watch(cameraViewModelProvider);
+    final CameraViewModel viewModel =
+        ref.read(cameraViewModelProvider.notifier);
 
     /// 概要: カメラ権限を取得し、カメラ撮影画面に遷移する関数
     Future<void> handleCameraLaunch() async {
-      final status = await Permission.camera.request();
+      final PermissionStatus status = await Permission.camera.request();
       if (status.isGranted && context.mounted) {
-        final result = await context.router.push<String>(
-          TakePictureRoute(),
+        final String? result = await context.router.push<String>(
+          const TakePictureRoute(),
         );
         if (result != null) {
           viewModel.takePicture(result);
         }
       } else if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text("カメラの使用が許可されていません"),
+          const SnackBar(
+            content: Text('カメラの使用が許可されていません'),
           ),
         );
       }
@@ -39,18 +41,18 @@ class CameraPage extends HookConsumerWidget {
 
     useEffect(() {
       return viewModel.disposeController;
-    }, []);
+    }, <Object?>[]);
 
     return Scaffold(
       appBar: AppBar(title: const Text('カメラ')),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
+        children: <Widget>[
           ElevatedButton(
             onPressed: handleCameraLaunch,
-            child: Text("カメラを起動する"),
+            child: const Text('カメラを起動する'),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Expanded(
             child: state.imagePath.isNotEmpty
                 ? Center(
@@ -58,9 +60,9 @@ class CameraPage extends HookConsumerWidget {
                       File(state.imagePath),
                     ),
                   )
-                : Center(
+                : const Center(
                     child: Text(
-                      "ここに撮影した画像が表示されます",
+                      'ここに撮影した画像が表示されます',
                     ),
                   ),
           ),

@@ -41,7 +41,7 @@ class AppConstants {
   static const String sharedPrefUserKey = 'user_info';
 
   /// アイコン一覧
-  static const List<IconData> iconList = [
+  static const List<IconData> iconList = <IconData>[
     Icons.ac_unit,
     Icons.access_alarm,
     Icons.accessibility,
