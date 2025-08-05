@@ -8,8 +8,8 @@ part 'sns_state.freezed.dart';
 @freezed
 abstract class SnsState with _$SnsState {
   const factory SnsState({
-    @Default(<dynamic>[]) List<PostResponse> posts,
-    @Default(<dynamic, dynamic>{})
+    @Default(<PostResponse>[]) List<PostResponse> posts,
+    @Default(<int, List<CommentResponse>>{})
     Map<int, List<CommentResponse>> commentsByPost,
     @Default(-1) int selectedPostIndex,
   }) = _SnsState;
