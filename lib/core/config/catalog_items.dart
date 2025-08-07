@@ -65,8 +65,8 @@ class CatalogItems {
     ),
     CatalogItem(
       title: '#102 レスポンシブUI',
-      detail: 'LayoutBuilder・MediaQuery',
-      route: CountRoute(),
+      detail: 'LayoutBuilderを使ったレスポンシブなレイアウト',
+      route: ResponsiveRoute(),
     ),
   ];
 

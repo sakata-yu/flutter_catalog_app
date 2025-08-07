@@ -22,6 +22,7 @@ import '../../features/catalog008/view/transition_notice_page.dart';
 import '../../features/catalog008/view/transition_my_page.dart';
 import '../../features/catalog008/view/transition_drawer_page.dart';
 import '../../features/catalog101/tutorial_page.dart';
+import '../../features/catalog102/responsive_page.dart';
 
 part 'app_router.gr.dart'; // 自動生成ファイル
 
@@ -40,6 +41,7 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: VoiceRoute.page),
         AutoRoute(page: TransitionRoute.page),
         AutoRoute(page: TutorialRoute.page),
+        AutoRoute(page: ResponsiveRoute.page),
 
         /// #008 画面遷移画面用
         AutoRoute(page: TransitionSimpleRoute.page),
