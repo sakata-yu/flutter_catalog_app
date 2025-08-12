@@ -18,6 +18,6 @@ Flutter での基本的な使い方、およびカスタマイズ方法も含ま
 ```
 lib/
 └── features/
-    └── catalog101/
+    └── catalog102/
         └── responsive_page.dart
 ```
