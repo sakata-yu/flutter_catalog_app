@@ -72,9 +72,9 @@ class CatalogItems {
 
   static const List<CatalogItem> android = <CatalogItem>[
     CatalogItem(
-      title: '#201 インテントの起動',
+      title: '#201 インテントを使った別アプリの起動',
       detail: '他アプリとの連携',
-      route: CountRoute(),
+      route: IntentRoute(),
     ),
     CatalogItem(
       title: '#202 バックキー検出',
