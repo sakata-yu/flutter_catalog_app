@@ -48,7 +48,7 @@ class ResponsivePage extends HookConsumerWidget {
             final Padding screenHeightText = Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
-                '画面の横幅: $screenHeight',
+                '画面の縦幅: $screenHeight',
                 style: const TextStyle(fontSize: 18),
               ),
             );
