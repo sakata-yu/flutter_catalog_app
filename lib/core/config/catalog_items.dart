@@ -79,7 +79,7 @@ class CatalogItems {
     CatalogItem(
       title: '#202 バックキー検出',
       detail: 'WillPopScope・SystemNavigator.pop制御',
-      route: CountRoute(),
+      route: BackkeyRoute(),
     ),
     CatalogItem(
       title: '#203 システムバー制御',

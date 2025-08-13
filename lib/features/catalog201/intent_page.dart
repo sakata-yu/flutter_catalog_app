@@ -60,7 +60,7 @@ class IntentPage extends HookConsumerWidget {
     runIfAndroid(() async {
       final AndroidIntent intent = AndroidIntent(
         action: 'android.intent.action.SEND',
-        arguments: {'android.intent.extra.TEXT': text},
+        arguments: <String, dynamic>{'android.intent.extra.TEXT': text},
         type: 'text/plain',
       );
       await intent.launch();
