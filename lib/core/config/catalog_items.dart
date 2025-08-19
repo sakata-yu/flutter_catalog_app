@@ -92,7 +92,7 @@ class CatalogItems {
     CatalogItem(
       title: '#302 iOS風のスクロール挙動',
       detail: 'CupertinoScrollbar・BouncingScrollPhysics',
-      route: CountRoute(),
+      route: CupertinoScrollbarRoute(),
     ),
     CatalogItem(
       title: '#303 SafeAreaの使い方',

@@ -26,6 +26,7 @@ import '../../features/catalog102/responsive_page.dart';
 import '../../features/catalog201/intent_page.dart';
 import '../../features/catalog202/backkey_page.dart';
 import '../../features/catalog301/cupertino_sample_page.dart';
+import '../../features/catalog302/cupertino_scrollbar_page.dart';
 
 part 'app_router.gr.dart'; // 自動生成ファイル
 
@@ -48,6 +49,7 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: IntentRoute.page),
         AutoRoute(page: BackkeyRoute.page),
         AutoRoute(page: CupertinoSampleRoute.page),
+        AutoRoute(page: CupertinoScrollbarRoute.page),
 
         /// #008 画面遷移画面用
         AutoRoute(page: TransitionSimpleRoute.page),
