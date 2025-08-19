@@ -81,18 +81,13 @@ class CatalogItems {
       detail: 'WillPopScope・SystemNavigator.pop制御',
       route: BackkeyRoute(),
     ),
-    CatalogItem(
-      title: '#203 システムバー制御',
-      detail: 'ステータスバー透過・色変更',
-      route: CountRoute(),
-    ),
   ];
 
   static const List<CatalogItem> ios = <CatalogItem>[
     CatalogItem(
       title: '#301 Cupertino UI',
       detail: 'CupertinoButton・CupertinoAlertDialog',
-      route: CountRoute(),
+      route: CupertinoSampleRoute(),
     ),
     CatalogItem(
       title: '#302 iOS風のスクロール挙動',
