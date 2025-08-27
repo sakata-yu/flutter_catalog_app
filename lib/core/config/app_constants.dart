@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+// ウィジェットテスト用のウィジェットキー
+typedef WidgetKey = Key;
+
 /// アプリ全体で共通して使用される定数を管理するクラス
 class AppConstants {
   // ---------------- UI 関連 ----------------
@@ -55,4 +58,9 @@ class AppConstants {
     Icons.cake,
     Icons.dashboard,
   ];
+
+  static const WidgetKey countValueText = Key('count_value');
+  static const WidgetKey countIncrementButton = Key('count_increment');
+  static const WidgetKey countDecrementButton = Key('count_decrement');
+  static const WidgetKey countResetButton = Key('count_reset');
 }

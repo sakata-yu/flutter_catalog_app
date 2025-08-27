@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../core/config/app_constants.dart';
+
 @RoutePage()
 class CountPage extends HookConsumerWidget {
   const CountPage({super.key});
@@ -27,16 +29,19 @@ class CountPage extends HookConsumerWidget {
             children: <Widget>[
               ElevatedButton(
                 onPressed: () => viewModel.increment(),
+                key: AppConstants.countIncrementButton,
                 child: const Icon(Icons.add),
               ),
               ElevatedButton(
                 onPressed: () => viewModel.decrement(),
+                key: AppConstants.countDecrementButton,
                 child: const Icon(Icons.remove),
               ),
             ],
           ),
           ElevatedButton(
             onPressed: () => viewModel.reset(),
+            key: AppConstants.countResetButton,
             child: const Text('Reset'),
           ),
         ],
