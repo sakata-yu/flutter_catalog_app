@@ -9,7 +9,7 @@ import 'response/post_response.dart';
 part 'api_client.g.dart';
 
 final Provider<ApiClient> apiClientProvider =
-    Provider<ApiClient>((Ref<ApiClient> ref) {
+    Provider<ApiClient>((Ref ref) {
   return ApiClient(Dio(_dioOption));
 });
 
