@@ -1,3 +1,4 @@
+import 'package:catarog_app_flutter/core/config/app_constants.dart';
 import 'package:flutter/material.dart';
 
 class CounterText extends StatelessWidget {
@@ -16,6 +17,7 @@ class CounterText extends StatelessWidget {
         fontSize: 40,
         fontWeight: FontWeight.bold,
       ),
+      key: AppConstants.countValueText,
     );
   }
 }
