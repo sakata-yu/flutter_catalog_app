@@ -22,9 +22,7 @@
 ⸻
 
 開発前の準備
-1. 必要な依存を取得 <br />
-fvm flutter pub get
-2. 初期設定 <br />
+1. 初期設定 <br />
 make init
 
 ⸻
@@ -33,7 +31,7 @@ make init
 
 プルリクエスト前に以下を実行し、問題がないことを確認してください：
 
-make format      # Dartフォーマット
+make format      # Dartフォーマット <br />
 make analyze     # 静的解析
 
 ⸻
