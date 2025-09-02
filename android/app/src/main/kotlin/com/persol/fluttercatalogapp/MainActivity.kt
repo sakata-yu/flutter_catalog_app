@@ -1,4 +1,4 @@
-package com.example.catalog_app_flutter
+package com.persol.fluttercatalogapp
 
 import io.flutter.embedding.android.FlutterActivity
 
