@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:catarog_app_flutter/core/network/repository/post_repository.dart';
-import 'package:catarog_app_flutter/core/network/request/post_request.dart';
-import 'package:catarog_app_flutter/core/network/response/comment_response.dart';
-import 'package:catarog_app_flutter/core/network/response/post_response.dart';
+import 'package:catalog_app_flutter/core/network/repository/post_repository.dart';
+import 'package:catalog_app_flutter/core/network/request/post_request.dart';
+import 'package:catalog_app_flutter/core/network/response/comment_response.dart';
+import 'package:catalog_app_flutter/core/network/response/post_response.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../data/sns_state.dart';
 

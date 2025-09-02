@@ -1,4 +1,4 @@
-import 'package:catarog_app_flutter/features/catalog002/data/auth_state_notifier.dart';
+import 'package:catalog_app_flutter/features/catalog002/data/auth_state_notifier.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../data/login_state.dart';
 

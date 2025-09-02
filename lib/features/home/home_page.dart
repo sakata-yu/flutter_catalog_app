@@ -1,6 +1,9 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:catarog_app_flutter/core/config/catalog_items.dart';
+import 'package:catalog_app_flutter/core/config/catalog_items.dart';
+import 'package:catalog_app_flutter/core/utils/context_extension.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/config/app_constants.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {
@@ -10,20 +13,20 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Map<String, Object>> sections = <Map<String, Object>>[
       <String, Object>{
-        'title': '共通機能',
-        'items': CatalogItems.common,
+        AppConstants.catalogItemKeyTitle: context.l10n.section_title_common,
+        AppConstants.catalogItemsKeyItems: commonCatalogItems,
       },
       <String, Object>{
-        'title': 'UI機能',
-        'items': CatalogItems.ui,
+        AppConstants.catalogItemKeyTitle: context.l10n.section_title_ui,
+        AppConstants.catalogItemsKeyItems: uiCatalogItems,
       },
       <String, Object>{
-        'title': 'Android専用機能',
-        'items': CatalogItems.android,
+        AppConstants.catalogItemKeyTitle: context.l10n.section_title_android,
+        AppConstants.catalogItemsKeyItems: androidCatalogItems,
       },
       <String, Object>{
-        'title': 'iOS専用機能',
-        'items': CatalogItems.ios,
+        AppConstants.catalogItemKeyTitle: context.l10n.section_title_ios,
+        AppConstants.catalogItemsKeyItems: iosCatalogItems,
       },
     ];
 
@@ -58,8 +61,8 @@ class HomePage extends StatelessWidget {
             if (index < currentIndex + items.length) {
               final CatalogItem item = items[index - currentIndex];
               return ListTile(
-                title: Text(item.title),
-                subtitle: Text(item.detail),
+                title: Text(item.titleOf(context)),
+                subtitle: Text(item.detailOf(context)),
                 onTap: () => context.router.push(item.route),
               );
             }

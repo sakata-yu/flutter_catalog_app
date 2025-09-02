@@ -1,103 +1,106 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:catarog_app_flutter/core/router/app_router.dart';
+import 'package:catalog_app_flutter/core/router/app_router.dart';
+import 'package:catalog_app_flutter/core/utils/context_extension.dart';
+import 'package:flutter/material.dart' hide TransitionRoute;
 
 class CatalogItem {
-
   const CatalogItem({
     required this.title,
     required this.detail,
     required this.route,
   });
-  final String title;
-  final String detail;
+
+  final String Function(BuildContext context) title;
+  final String Function(BuildContext context) detail;
   final PageRouteInfo route;
+
+  String titleOf(BuildContext context) => title(context);
+
+  String detailOf(BuildContext context) => detail(context);
 }
 
-class CatalogItems {
-  static const List<CatalogItem> common = <CatalogItem>[
-    CatalogItem(
-      title: '#001 カウントアプリ',
-      detail: '最小アーキテクチャ実装',
-      route: CountRoute(),
-    ),
-    CatalogItem(
-      title: '#002 ログイン画面',
-      detail: 'フォームバリデーション実装',
-      route: LoginRoute(),
-    ),
-    CatalogItem(
-      title: '#003 SNS風画面',
-      detail: 'JSONPlaceholderを使った基本的なAPI実装',
-      route: SnsRoute(),
-    ),
-    CatalogItem(
-      title: '#004 ダイアログ系ウィジェット',
-      detail: 'Snackbar・AlertDialog・BottomSheet・Toast',
-      route: CustomDialogRoute(),
-    ),
-    CatalogItem(
-      title: '#005 カメラ画面',
-      detail: 'カメラを使った撮影機能の実装',
-      route: CameraRoute(),
-    ),
-    CatalogItem(
-      title: '#006 マップ画面',
-      detail: 'FlutterMapを使用した位置情報の取得',
-      route: MapRoute(),
-    ),
-    CatalogItem(
-      title: '#007 音声入力',
-      detail: '音声入力機能',
-      route: VoiceRoute(),
-    ),
-    CatalogItem(
-      title: '#008 画面遷移',
-      detail: 'AutoRouteを使った画面遷移',
-      route: TransitionRoute(),
-    ),
-  ];
+List<CatalogItem> commonCatalogItems = <CatalogItem>[
+  CatalogItem(
+    title: (BuildContext context) => context.l10n.count_app_title,
+    detail: (BuildContext context) => context.l10n.count_app_detail,
+    route: const CountRoute(),
+  ),
+  CatalogItem(
+    title: (BuildContext context) => context.l10n.login_title,
+    detail: (BuildContext context) => context.l10n.login_detail,
+    route: const LoginRoute(),
+  ),
+  CatalogItem(
+    title: (BuildContext context) => context.l10n.sns_title,
+    detail: (BuildContext context) => context.l10n.sns_detail,
+    route: const SnsRoute(),
+  ),
+  CatalogItem(
+    title: (BuildContext context) => context.l10n.dialog_title,
+    detail: (BuildContext context) => context.l10n.dialog_detail,
+    route: const CustomDialogRoute(),
+  ),
+  CatalogItem(
+    title: (BuildContext context) => context.l10n.camera_title,
+    detail: (BuildContext context) => context.l10n.camera_detail,
+    route: const CameraRoute(),
+  ),
+  CatalogItem(
+    title: (BuildContext context) => context.l10n.map_title,
+    detail: (BuildContext context) => context.l10n.map_detail,
+    route: const MapRoute(),
+  ),
+  CatalogItem(
+    title: (BuildContext context) => context.l10n.voice_title,
+    detail: (BuildContext context) => context.l10n.voice_detail,
+    route: const VoiceRoute(),
+  ),
+  CatalogItem(
+      title: (BuildContext context) => context.l10n.transition_title,
+      detail: (BuildContext context) => context.l10n.transition_detail,
+      route: const TransitionRoute()),
+];
 
-  static const List<CatalogItem> ui = <CatalogItem>[
-    CatalogItem(
-      title: '#101 チュートリアル画面',
-      detail: 'Lottieを使ったアニメーション',
-      route: TutorialRoute(),
-    ),
-    CatalogItem(
-      title: '#102 レスポンシブUI',
-      detail: 'LayoutBuilderを使ったレスポンシブなレイアウト',
-      route: ResponsiveRoute(),
-    ),
-  ];
+List<CatalogItem> uiCatalogItems = <CatalogItem>[
+  CatalogItem(
+    title: (BuildContext context) => context.l10n.tutorial_title,
+    detail: (BuildContext context) => context.l10n.tutorial_detail,
+    route: const TutorialRoute(),
+  ),
+  CatalogItem(
+    title: (BuildContext context) => context.l10n.responsive_title,
+    detail: (BuildContext context) => context.l10n.responsive_detail,
+    route: const ResponsiveRoute(),
+  ),
+];
 
-  static const List<CatalogItem> android = <CatalogItem>[
-    CatalogItem(
-      title: '#201 インテントを使った別アプリの起動',
-      detail: '他アプリとの連携',
-      route: IntentRoute(),
-    ),
-    CatalogItem(
-      title: '#202 バックキー検出',
-      detail: 'WillPopScope・SystemNavigator.pop制御',
-      route: BackkeyRoute(),
-    ),
-  ];
+List<CatalogItem> androidCatalogItems = <CatalogItem>[
+  CatalogItem(
+    title: (BuildContext context) => context.l10n.intent_title,
+    detail: (BuildContext context) => context.l10n.intent_detail,
+    route: const IntentRoute(),
+  ),
+  CatalogItem(
+    title: (BuildContext context) => context.l10n.backkey_title,
+    detail: (BuildContext context) => context.l10n.backkey_detail,
+    route: const BackkeyRoute(),
+  ),
+];
 
-  static const List<CatalogItem> ios = <CatalogItem>[
-    CatalogItem(
-      title: '#301 Cupertino UI',
-      detail: 'CupertinoButton・CupertinoAlertDialog',
-      route: CupertinoSampleRoute(),
-    ),
-    CatalogItem(
-      title: '#302 iOS風のスクロール挙動',
-      detail: 'CupertinoScrollbar・BouncingScrollPhysics',
-      route: CupertinoScrollbarRoute(),
-    ),
-    CatalogItem(
-      title: '#303 SafeAreaの使い方',
-      detail: 'ノッチ対応',
-      route: CountRoute(),
-    ),
-  ];
-}
+List<CatalogItem> iosCatalogItems = <CatalogItem>[
+  CatalogItem(
+    title: (BuildContext context) => context.l10n.cupertino_title,
+    detail: (BuildContext context) => context.l10n.cupertino_detail,
+    route: const CupertinoSampleRoute(),
+  ),
+  CatalogItem(
+    title: (BuildContext context) => context.l10n.scroll_title,
+    detail: (BuildContext context) => context.l10n.scroll_detail,
+    route: const CupertinoScrollbarRoute(),
+  ),
+  CatalogItem(
+    title: (BuildContext context) => context.l10n.safearea_title,
+    detail: (BuildContext context) => context.l10n.safearea_detail,
+    route: const CountRoute(),
+  ),
+];

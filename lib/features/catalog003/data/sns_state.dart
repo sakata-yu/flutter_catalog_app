@@ -1,4 +1,4 @@
-import 'package:catarog_app_flutter/core/network/response/post_response.dart';
+import 'package:catalog_app_flutter/core/network/response/post_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../core/network/response/comment_response.dart';

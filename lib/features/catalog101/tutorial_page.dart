@@ -1,4 +1,4 @@
-import 'package:catarog_app_flutter/features/catalog101/view/tutorial_step_page.dart';
+import 'package:catalog_app_flutter/features/catalog101/view/tutorial_step_page.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

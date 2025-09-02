@@ -1,6 +1,7 @@
-import 'package:catarog_app_flutter/features/catalog004/view/ios_alert_dialog.dart';
+import 'package:catalog_app_flutter/features/catalog004/view/ios_alert_dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -12,6 +13,7 @@ class CupertinoSamplePage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final ValueNotifier<bool> sliderValue = useState(false);
     final ValueNotifier<int> selectedSegmentValue = useState(0);
+    final TextTheme textTheme = Theme.of(context).textTheme;
 
     return CupertinoTheme(
       data: const CupertinoThemeData(brightness: Brightness.light),
@@ -30,7 +32,7 @@ class CupertinoSamplePage extends HookConsumerWidget {
                     context: context,
                     builder: (_) => CupertinoActionSheet(
                       title: const Text('アクション一覧'),
-                      actions: [
+                      actions: <Widget>[
                         CupertinoActionSheetAction(
                           onPressed: () => context.router.pop(),
                           child: const Text('アクション1'),
@@ -67,12 +69,9 @@ class CupertinoSamplePage extends HookConsumerWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    const Text(
+                    Text(
                       'Switch',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: CupertinoColors.label,
-                      ),
+                      style: textTheme.titleMedium,
                     ),
                     CupertinoSwitch(
                       value: sliderValue.value,
@@ -88,26 +87,26 @@ class CupertinoSamplePage extends HookConsumerWidget {
                   onValueChanged: (int value) {
                     selectedSegmentValue.value = value;
                   },
-                  children: const <int, Widget>{
+                  children: <int, Widget>{
                     0: Padding(
-                      padding: EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(8),
                       child: Text(
                         'ホーム',
-                        style: TextStyle(fontSize: 16),
+                        style: textTheme.titleMedium,
                       ),
                     ),
                     1: Padding(
-                      padding: EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(8),
                       child: Text(
                         '検索',
-                        style: TextStyle(fontSize: 16),
+                        style: textTheme.titleMedium,
                       ),
                     ),
                     2: Padding(
-                      padding: EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(8),
                       child: Text(
                         '設定',
-                        style: TextStyle(fontSize: 16),
+                        style: textTheme.titleMedium,
                       ),
                     ),
                   },
