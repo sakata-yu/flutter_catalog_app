@@ -1,7 +1,7 @@
-import 'package:catarog_app_flutter/core/network/response/comment_response.dart';
-import 'package:catarog_app_flutter/core/network/response/post_response.dart';
-import 'package:catarog_app_flutter/features/catalog003/data/sns_state.dart';
-import 'package:catarog_app_flutter/features/catalog003/view/post_item.dart';
+import 'package:catalog_app_flutter/core/network/response/comment_response.dart';
+import 'package:catalog_app_flutter/core/network/response/post_response.dart';
+import 'package:catalog_app_flutter/features/catalog003/data/sns_state.dart';
+import 'package:catalog_app_flutter/features/catalog003/view/post_item.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

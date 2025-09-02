@@ -1,6 +1,6 @@
-import 'package:catarog_app_flutter/features/catalog001/data/count_state.dart';
-import 'package:catarog_app_flutter/features/catalog001/view/counter_text.dart';
-import 'package:catarog_app_flutter/features/catalog001/view_model/count_view_model.dart';
+import 'package:catalog_app_flutter/features/catalog001/data/count_state.dart';
+import 'package:catalog_app_flutter/features/catalog001/view/counter_text.dart';
+import 'package:catalog_app_flutter/features/catalog001/view_model/count_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

@@ -63,4 +63,7 @@ class AppConstants {
   static const WidgetKey countIncrementButton = Key('count_increment');
   static const WidgetKey countDecrementButton = Key('count_decrement');
   static const WidgetKey countResetButton = Key('count_reset');
+
+  static const String catalogItemKeyTitle = 'title';
+  static const String catalogItemsKeyItems = 'items';
 }

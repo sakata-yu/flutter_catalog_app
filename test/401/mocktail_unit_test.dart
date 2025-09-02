@@ -1,6 +1,6 @@
-import 'package:catarog_app_flutter/core/network/api_client.dart';
-import 'package:catarog_app_flutter/core/network/repository/post_repository.dart';
-import 'package:catarog_app_flutter/core/network/response/post_response.dart';
+import 'package:catalog_app_flutter/core/network/api_client.dart';
+import 'package:catalog_app_flutter/core/network/repository/post_repository.dart';
+import 'package:catalog_app_flutter/core/network/response/post_response.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

@@ -1,4 +1,4 @@
-import 'package:catarog_app_flutter/features/catalog004/view/simple_bottom_sheet.dart';
+import 'package:catalog_app_flutter/features/catalog004/view/simple_bottom_sheet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';

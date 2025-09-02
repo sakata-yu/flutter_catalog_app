@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 @RoutePage()
 class CupertinoScrollbarPage extends StatelessWidget {
@@ -36,7 +37,10 @@ class CupertinoScrollbarPage extends StatelessWidget {
                       bottom: BorderSide(color: CupertinoColors.separator),
                     ),
                   ),
-                  child: Text('アイテム $index'),
+                  child: Text(
+                    'アイテム $index',
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
                 );
               },
             ),
