@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "222517239642",
+    "project_id": "flutter-catalog-app-946c0",
+    "storage_bucket": "flutter-catalog-app-946c0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:222517239642:android:45206b2915be706394dd63",
+        "android_client_info": {
+          "package_name": "com.persol.fluttercatalogapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxiQEr49lhxGtpJ9NuAwHlSA7D0mgX2ys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
