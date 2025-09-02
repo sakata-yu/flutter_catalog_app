@@ -58,6 +58,6 @@ jobs:
         with:
           appId: ${{ secrets.FIREBASE_APP_ID }}
           token: ${{ secrets.FIREBASE_TOKEN }}
-          groups: "社内テスター"
+          groups: ${{ secrets.FIREBASE_DISTRIBUTION_GROUPS }}
           file: build/app/outputs/flutter-apk/app-release.apk
           releaseNotes: ${{ github.event.head_commit.message }}
