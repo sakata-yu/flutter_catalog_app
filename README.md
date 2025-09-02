@@ -1,7 +1,6 @@
 ## Flutter Catalog Sample App
 
 このプロジェクトは、Flutter によるカタログ用サンプルアプリです。
-プロジェクト構成は、「The Ultimate Guide to Flutter Clean Architecture」に基づいて設計されています。
 
 ### セットアップ手順
 
@@ -68,9 +67,16 @@ flutter_catalog_app/
 make create-feature cid=000 name=hogehoge
 ```
 
+### 文言管理
+以下GoogleDriveにて管理
+
+https://drive.google.com/drive/folders/1qnQ84S_GsoTe3fN67A9nogUkfB_tBXPw
+
+文言管理スプレッドシートのデータ生成→l10nファイル生成から文言用arbファイル作成（作成先：https://drive.google.com/drive/folders/17aetsPEXOaZBhBDDNe1LBBYwiZKHuuEN）
+
 ### 参考
 
-このリポジトリは以下の設計ガイドラインをベースに構築されています：
+このリポジトリは以下の設計ガイドラインを参考にしています
 
 The Ultimate Guide to Flutter Clean Architecture
 （https://codewithandrea.com/articles/flutter-clean-architecture-features-modularization/）
