@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:catalog_app_flutter/features/catalog009/method_channel/method_channel_page.dart';
 
 /**
  * ルーティング設定するページ一覧
@@ -50,6 +51,7 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: BackkeyRoute.page),
         AutoRoute(page: CupertinoSampleRoute.page),
         AutoRoute(page: CupertinoScrollbarRoute.page),
+        AutoRoute(page: MethodChannelRoute.page),
 
         /// #008 画面遷移画面用
         AutoRoute(page: TransitionSimpleRoute.page),

@@ -8,14 +8,17 @@ if [ -z "$CID" ] || [ -z "$NAME" ]; then
   exit 1
 fi
 
-# PascalCase へ変換
-CLASS_NAME="$(tr '[:lower:]' '[:upper:]' <<< ${NAME:0:1})${NAME:1}"
+# PascalCase に変換
+CLASS_NAME=$(echo "$NAME" | perl -pe 's/(^|_)([a-z])/\U$2/g')
 
-BASE_DIR="lib/features/catalog${CID}"
-mkdir -p $BASE_DIR/{data,view,view_model}
+# camelCase に変換
+VAR_NAME="$(tr 'A-Z' 'a-z' <<< ${CLASS_NAME:0:1})${CLASS_NAME:1}"
+
+BASE_DIR="lib/features/catalog${CID}/${NAME}"
+mkdir -p "$BASE_DIR"/{data,view,view_model}
 
 # --- data/state ---
-cat <<EOF > $BASE_DIR/data/${NAME}_state.dart
+cat <<EOF > "$BASE_DIR/data/${NAME}_state.dart"
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part '${NAME}_state.freezed.dart';
@@ -24,7 +27,7 @@ part '${NAME}_state.g.dart';
 @freezed
 abstract class ${CLASS_NAME}State with _\$${CLASS_NAME}State {
   const factory ${CLASS_NAME}State({
-    @Default("") String name,
+    @Default('') String name,
   }) = _${CLASS_NAME}State;
 
   factory ${CLASS_NAME}State.fromJson(Map<String, dynamic> json) =>
@@ -33,11 +36,12 @@ abstract class ${CLASS_NAME}State with _\$${CLASS_NAME}State {
 EOF
 
 # --- view_model ---
-cat <<EOF > $BASE_DIR/view_model/${NAME}_view_model.dart
+cat <<EOF > "$BASE_DIR/view_model/${NAME}_view_model.dart"
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../data/${NAME}_state.dart';
 
-final ${NAME}ViewModelProvider =
+final StateNotifierProvider<${CLASS_NAME}ViewModel, ${CLASS_NAME}State>
+    ${VAR_NAME}ViewModelProvider =
     StateNotifierProvider<${CLASS_NAME}ViewModel, ${CLASS_NAME}State>(
         (ref) => ${CLASS_NAME}ViewModel());
 
@@ -47,7 +51,7 @@ class ${CLASS_NAME}ViewModel extends StateNotifier<${CLASS_NAME}State> {
 EOF
 
 # --- ページファイル ---
-cat <<EOF > $BASE_DIR/${NAME}_page.dart
+cat <<EOF > "$BASE_DIR/${NAME}_page.dart"
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -60,7 +64,7 @@ class ${CLASS_NAME}Page extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(${NAME}ViewModelProvider);
+    final state = ref.watch(${VAR_NAME}ViewModelProvider);
     return Scaffold(
       appBar: AppBar(title: const Text('${NAME}')),
       body: Center(
@@ -71,4 +75,4 @@ class ${CLASS_NAME}Page extends HookConsumerWidget {
 }
 EOF
 
-echo "✅ catalog${CID}/${NAME} 機能のファイルを生成しました。"
+echo "✅ lib/features/catalog${CID}/${NAME} 機能のファイルを生成しました。"
