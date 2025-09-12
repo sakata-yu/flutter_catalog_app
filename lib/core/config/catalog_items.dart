@@ -56,9 +56,15 @@ List<CatalogItem> commonCatalogItems = <CatalogItem>[
     route: const VoiceRoute(),
   ),
   CatalogItem(
-      title: (BuildContext context) => context.l10n.transition_title,
-      detail: (BuildContext context) => context.l10n.transition_detail,
-      route: const TransitionRoute()),
+    title: (BuildContext context) => context.l10n.transition_title,
+    detail: (BuildContext context) => context.l10n.transition_detail,
+    route: const TransitionRoute(),
+  ),
+  CatalogItem(
+    title: (BuildContext context) => context.l10n.method_channel_title,
+    detail: (BuildContext context) => context.l10n.method_channel_detail,
+    route: const MethodChannelRoute(),
+  ),
 ];
 
 List<CatalogItem> uiCatalogItems = <CatalogItem>[

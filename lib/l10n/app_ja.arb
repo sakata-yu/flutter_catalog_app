@@ -16,6 +16,8 @@
   "voice_detail": "音声入力機能",
   "transition_title": "#008 画面遷移",
   "transition_detail": "AutoRouteを使った画面遷移",
+  "method_channel_title": "#009 MethodChannel",
+  "method_channel_detail": "MethodChannelを使った生体認証",
   "tutorial_title": "#101 チュートリアル画面",
   "tutorial_detail": "Lottieを使ったアニメーション",
   "responsive_title": "#102 レスポンシブUI",
