@@ -1,6 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:catalog_app_flutter/features/catalog009/method_channel/method_channel_page.dart';
+import 'package:flutter/material.dart';
 
+import '../../features/catalog010/hero_animation/hero_animation_page.dart';
+import '../../features/catalog010/hero_animation/view/hero_animation_detail_page.dart';
 /**
  * ルーティング設定するページ一覧
  */
@@ -52,6 +55,8 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: CupertinoSampleRoute.page),
         AutoRoute(page: CupertinoScrollbarRoute.page),
         AutoRoute(page: MethodChannelRoute.page),
+        AutoRoute(page: HeroAnimationRoute.page),
+        AutoRoute(page: HeroAnimationDetailRoute.page),
 
         /// #008 画面遷移画面用
         AutoRoute(page: TransitionSimpleRoute.page),
