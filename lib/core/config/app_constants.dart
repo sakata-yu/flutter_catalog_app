@@ -66,4 +66,6 @@ class AppConstants {
 
   static const String catalogItemKeyTitle = 'title';
   static const String catalogItemsKeyItems = 'items';
+
+  static const String heroAnimationKey = 'hero_animation';
 }

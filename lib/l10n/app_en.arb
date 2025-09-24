@@ -18,6 +18,8 @@
   "transition_detail": "Navigation with AutoRoute",
   "method_channel_title": "#009 MethodChannel Page",
   "method_channel_detail": "Biometric auth using MethodChannel",
+  "hero_animation_title": "#010 Hero Animation",
+  "hero_animation_detail": "Animation sample using Hero Animation",
   "tutorial_title": "#101 Tutorial Page",
   "tutorial_detail": "Animation with Lottie",
   "responsive_title": "#102 Responsive UI",
