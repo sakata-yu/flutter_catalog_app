@@ -20,6 +20,8 @@
   "method_channel_detail": "MethodChannelを使った生体認証",
   "hero_animation_title": "#010 Hero アニメーション",
   "hero_animation_detail": "Heroアニメーションを使った遷移アニメーション",
+  "animated_container_title": "#011 Animated Container",
+  "animated_container_detail": "Animated Containerを使ったアニメーション",
   "tutorial_title": "#101 チュートリアル画面",
   "tutorial_detail": "Lottieを使ったアニメーション",
   "responsive_title": "#102 レスポンシブUI",

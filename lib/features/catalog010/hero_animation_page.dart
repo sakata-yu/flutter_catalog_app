@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../core/asset_gen/assets.gen.dart';
+import '../../core/asset_gen/assets.gen.dart';
 
 @RoutePage()
 class HeroAnimationPage extends HookConsumerWidget {
