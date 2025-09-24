@@ -1,9 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:catalog_app_flutter/features/catalog009/method_channel/method_channel_page.dart';
 import 'package:flutter/material.dart';
-
-import '../../features/catalog010/hero_animation/hero_animation_page.dart';
-import '../../features/catalog010/hero_animation/view/hero_animation_detail_page.dart';
 /**
  * ルーティング設定するページ一覧
  */
@@ -17,6 +13,20 @@ import '../../features/catalog005/view/take_picture_page.dart';
 import '../../features/catalog006/map_page.dart';
 import '../../features/catalog007/voice_page.dart';
 import '../../features/catalog008/transition_page.dart';
+import '../../features/catalog009//method_channel_page.dart';
+import '../../features/catalog010/hero_animation_page.dart';
+import '../../features/catalog010//view/hero_animation_detail_page.dart';
+import '../../features/catalog011/animated_container_page.dart';
+
+import '../../features/catalog101/tutorial_page.dart';
+import '../../features/catalog102/responsive_page.dart';
+
+import '../../features/catalog201/intent_page.dart';
+import '../../features/catalog202/backkey_page.dart';
+
+import '../../features/catalog301/cupertino_sample_page.dart';
+import '../../features/catalog302/cupertino_scrollbar_page.dart';
+
 
 /// #008 画面遷移画面用
 import '../../features/catalog008/view/transition_simple_page.dart';
@@ -25,12 +35,6 @@ import '../../features/catalog008/view/transition_home_page.dart';
 import '../../features/catalog008/view/transition_notice_page.dart';
 import '../../features/catalog008/view/transition_my_page.dart';
 import '../../features/catalog008/view/transition_drawer_page.dart';
-import '../../features/catalog101/tutorial_page.dart';
-import '../../features/catalog102/responsive_page.dart';
-import '../../features/catalog201/intent_page.dart';
-import '../../features/catalog202/backkey_page.dart';
-import '../../features/catalog301/cupertino_sample_page.dart';
-import '../../features/catalog302/cupertino_scrollbar_page.dart';
 
 part 'app_router.gr.dart'; // 自動生成ファイル
 
@@ -57,6 +61,7 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: MethodChannelRoute.page),
         AutoRoute(page: HeroAnimationRoute.page),
         AutoRoute(page: HeroAnimationDetailRoute.page),
+        AutoRoute(page: AnimatedContainerRoute.page),
 
         /// #008 画面遷移画面用
         AutoRoute(page: TransitionSimpleRoute.page),
