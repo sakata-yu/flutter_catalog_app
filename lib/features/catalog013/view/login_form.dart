@@ -7,7 +7,6 @@ class LoginForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 300,
-      key: key,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
