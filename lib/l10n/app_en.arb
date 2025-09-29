@@ -22,6 +22,8 @@
   "hero_animation_detail": "Animation sample using Hero Animation",
   "animated_container_title": "#011 Animated Container",
   "animated_container_detail": "Animated Container",
+  "animated_list_title": "#012 Animated List",
+  "animated_list_detail": "Animated List",
   "tutorial_title": "#101 Tutorial Page",
   "tutorial_detail": "Animation with Lottie",
   "responsive_title": "#102 Responsive UI",
