@@ -24,7 +24,10 @@ class AnimatedListViewModel extends StateNotifier<AnimatedListPageState> {
     final GlobalKey<AnimatedListState>? listKey = state.listKey;
     if (listKey == null) return;
     listKey.currentState?.insertItem(state.items.length);
-    state = state.copyWith(items: <String>[...state.items, item]);
+    state = state.copyWith(
+      items: <String>[...state.items, item],
+      listKey: listKey,
+    );
   }
 
   void removeItem(int index) {
@@ -45,6 +48,9 @@ class AnimatedListViewModel extends StateNotifier<AnimatedListPageState> {
       },
       duration: const Duration(milliseconds: 300),
     );
-    state = state.copyWith(items: items);
+    state = state.copyWith(
+      items: items,
+      listKey: listKey,
+    );
   }
 }

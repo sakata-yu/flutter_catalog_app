@@ -20,7 +20,7 @@ class LoginViewModel extends StateNotifier<AsyncValue<LoginState>> {
   Future<void> login() async {
     state = const AsyncValue<LoginState>.loading();
     state = await AsyncValue.guard(() async {
-      await Future<bool>.delayed(const Duration(seconds: 2), () => true);
+      await Future<bool>.delayed(const Duration(seconds: 2));
       authController.login();
       return state.value?.copyWith() ?? const LoginState();
     });
@@ -30,7 +30,7 @@ class LoginViewModel extends StateNotifier<AsyncValue<LoginState>> {
   Future<void> logout() async {
     state = const AsyncValue<LoginState>.loading();
     state = await AsyncValue.guard(() async {
-      await Future<bool>.delayed(const Duration(seconds: 1), () => true);
+      await Future<bool>.delayed(const Duration(seconds: 1));
       authController.logout();
       return state.value?.copyWith() ?? const LoginState();
     });
