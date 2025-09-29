@@ -80,6 +80,11 @@ List<CatalogItem> commonCatalogItems = <CatalogItem>[
     detail: (BuildContext context) => context.l10n.animated_list_detail,
     route: const AnimatedListRoute(),
   ),
+  CatalogItem(
+    title: (BuildContext context) => context.l10n.animated_switcher_title,
+    detail: (BuildContext context) => context.l10n.animated_switcher_detail,
+    route: const AnimatedSwitcherRoute(),
+  ),
 ];
 
 List<CatalogItem> uiCatalogItems = <CatalogItem>[
