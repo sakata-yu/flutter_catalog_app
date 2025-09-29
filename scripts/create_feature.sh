@@ -14,7 +14,7 @@ CLASS_NAME=$(echo "$NAME" | perl -pe 's/(^|_)([a-z])/\U$2/g')
 # camelCase に変換
 VAR_NAME="$(tr 'A-Z' 'a-z' <<< ${CLASS_NAME:0:1})${CLASS_NAME:1}"
 
-BASE_DIR="lib/features/catalog${CID}/${NAME}"
+BASE_DIR="lib/features/catalog${CID}"
 mkdir -p "$BASE_DIR"/{data,view,view_model}
 
 # --- data/state ---

@@ -17,6 +17,7 @@ import '../../features/catalog009//method_channel_page.dart';
 import '../../features/catalog010/hero_animation_page.dart';
 import '../../features/catalog010//view/hero_animation_detail_page.dart';
 import '../../features/catalog011/animated_container_page.dart';
+import '../../features/catalog012/animated_list_page.dart';
 
 import '../../features/catalog101/tutorial_page.dart';
 import '../../features/catalog102/responsive_page.dart';
@@ -62,6 +63,7 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: HeroAnimationRoute.page),
         AutoRoute(page: HeroAnimationDetailRoute.page),
         AutoRoute(page: AnimatedContainerRoute.page),
+        AutoRoute(page: AnimatedListRoute.page),
 
         /// #008 画面遷移画面用
         AutoRoute(page: TransitionSimpleRoute.page),
