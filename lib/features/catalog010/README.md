@@ -19,10 +19,9 @@ Flutter での基本的な使い方、およびカスタマイズ方法も含ま
 lib/
 └── features/
     └── catalog010/
-        └── hero_animation/
-            └── view/
-                └── hero_animation_detail_page.dart
-            └── hero_animation_page.dart
+          └── view/
+              └── hero_animation_detail_page.dart
+          └── hero_animation_page.dart
 ```
 
 ---

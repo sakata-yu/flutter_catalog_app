@@ -22,8 +22,7 @@ lib/
        └── biometric_channel.dart
 └── features/
     └── catalog009/
-        └── method_channel/
-            └── method_channel_page.dart
+          └── method_channel_page.dart
 android/
 └── app/
     └── src/
