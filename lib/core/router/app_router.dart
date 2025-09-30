@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import '../../features/catalog014/view/shared_preferences_once_page.dart';
+import '../../features/catalog014/view/shared_preferences_simple_page.dart';
 /**
  * ルーティング設定するページ一覧
  */
@@ -19,6 +21,10 @@ import '../../features/catalog010//view/hero_animation_detail_page.dart';
 import '../../features/catalog011/animated_container_page.dart';
 import '../../features/catalog012/animated_list_page.dart';
 import '../../features/catalog013/animated_switcher_page.dart';
+import '../../features/catalog014/shared_preferences_page.dart';
+import '../../features/catalog014/view/shared_preferences_once_page.dart';
+import '../../features/catalog014/view/shared_preferences_simple_page.dart';
+
 
 import '../../features/catalog101/tutorial_page.dart';
 import '../../features/catalog102/responsive_page.dart';
@@ -66,6 +72,9 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: AnimatedContainerRoute.page),
         AutoRoute(page: AnimatedListRoute.page),
         AutoRoute(page: AnimatedSwitcherRoute.page),
+        AutoRoute(page: SharedPreferencesRoute.page),
+        AutoRoute(page: SharedPreferencesSimpleRoute.page),
+        AutoRoute(page: SharedPreferencesOnceRoute.page),
 
         /// #008 画面遷移画面用
         AutoRoute(page: TransitionSimpleRoute.page),

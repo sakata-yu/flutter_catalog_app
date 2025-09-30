@@ -26,6 +26,8 @@
   "animated_list_detail": "Animated List",
   "animated_switcher_title": "#013 Animated Switcher",
   "animated_switcher_detail": "Animated Swither",
+  "shared_preferences_title": "#014 SharedPreferences",
+  "shared_preferences_detail": "SharedPreferences",
   "tutorial_title": "#101 Tutorial Page",
   "tutorial_detail": "Animation with Lottie",
   "responsive_title": "#102 Responsive UI",

@@ -9,7 +9,7 @@ class LoginForm extends StatelessWidget {
       width: 300,
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: [
+        children: <Widget>[
           Text('ログイン', style: Theme.of(context).textTheme.headlineMedium),
           const SizedBox(height: 16),
           const TextField(decoration: InputDecoration(labelText: 'メールアドレス')),

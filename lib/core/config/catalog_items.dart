@@ -85,6 +85,11 @@ List<CatalogItem> commonCatalogItems = <CatalogItem>[
     detail: (BuildContext context) => context.l10n.animated_switcher_detail,
     route: const AnimatedSwitcherRoute(),
   ),
+  CatalogItem(
+    title: (BuildContext context) => context.l10n.shared_preferences_title,
+    detail: (BuildContext context) => context.l10n.shared_preferences_detail,
+    route: const SharedPreferencesRoute(),
+  ),
 ];
 
 List<CatalogItem> uiCatalogItems = <CatalogItem>[

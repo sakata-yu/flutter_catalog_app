@@ -68,4 +68,6 @@ class AppConstants {
   static const String catalogItemsKeyItems = 'items';
 
   static const String heroAnimationKey = 'hero_animation';
+
+  static const String preferenceAlreadyShownKey = 'preference_already_shown';
 }
