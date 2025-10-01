@@ -11,7 +11,8 @@ class AnimatedListPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final AnimatedListPageState state = ref.watch(animatedListViewModelProvider);
+    final AnimatedListPageState state =
+        ref.watch(animatedListViewModelProvider);
     final AnimatedListViewModel viewModel =
         ref.read(animatedListViewModelProvider.notifier);
     return Scaffold(

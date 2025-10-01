@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import 'core/preference/providers.dart';
 import 'core/router/app_router.dart';
 import 'firebase_options.dart';
 import 'l10n/app_localizations.dart';
@@ -14,9 +16,14 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  final SharedPreferences preferences = await SharedPreferences.getInstance();
   runApp(
-    const ProviderScope(
-      child: MyApp(),
+    ProviderScope(
+      overrides: <Override>[
+        sharedPreferencesProvider.overrideWithValue(preferences),
+      ],
+      child: const MyApp(),
     ),
   );
 }

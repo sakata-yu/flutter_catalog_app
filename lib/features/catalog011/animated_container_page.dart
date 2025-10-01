@@ -27,7 +27,7 @@ class AnimatedContainerPage extends HookConsumerWidget {
               boxShadow: toggled.value
                   ? <BoxShadow>[
                       BoxShadow(
-                        color: Colors.redAccent.withOpacity(0.5),
+                        color: Colors.redAccent.withValues(alpha: 0.5),
                         spreadRadius: 4,
                         blurRadius: 10,
                       )
