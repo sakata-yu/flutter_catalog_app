@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'core/hive/hive_provider.dart';
 import 'core/preference/providers.dart';
 import 'core/router/app_router.dart';
 import 'firebase_options.dart';
@@ -18,11 +19,16 @@ void main() async {
   );
 
   final SharedPreferences preferences = await SharedPreferences.getInstance();
+
+  final ProviderContainer container = ProviderContainer(overrides: <Override>[
+    sharedPreferencesProvider.overrideWithValue(preferences),
+  ]);
+
+  await container.read(hiveInitProvider.future);
+
   runApp(
-    ProviderScope(
-      overrides: <Override>[
-        sharedPreferencesProvider.overrideWithValue(preferences),
-      ],
+    UncontrolledProviderScope(
+      container: container,
       child: const MyApp(),
     ),
   );

@@ -28,6 +28,8 @@
   "animated_switcher_detail": "Animated Switcherを使ったウィジェットアニメーション",
   "shared_preferences_title": "#014 SharedPreferences",
   "shared_preferences_detail": "SharedPreferencesを使ったローカルデータ管理",
+  "hive_title": "#015 Hive",
+  "hive_detail": "Hiveを使ったローカルデータベース管理",
   "tutorial_title": "#101 チュートリアル画面",
   "tutorial_detail": "Lottieを使ったアニメーション",
   "responsive_title": "#102 レスポンシブUI",
