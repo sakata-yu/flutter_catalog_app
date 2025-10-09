@@ -95,6 +95,11 @@ List<CatalogItem> commonCatalogItems = <CatalogItem>[
     detail: (BuildContext context) => context.l10n.hive_detail,
     route: const HiveRoute(),
   ),
+  CatalogItem(
+    title: (BuildContext context) => context.l10n.polling_title,
+    detail: (BuildContext context) => context.l10n.polling_detail,
+    route: const PollingRoute(),
+  ),
 ];
 
 List<CatalogItem> uiCatalogItems = <CatalogItem>[
