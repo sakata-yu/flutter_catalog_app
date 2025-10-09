@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+
 /**
  * ルーティング設定するページ一覧
  */
@@ -23,7 +24,7 @@ import '../../features/catalog014/shared_preferences_page.dart';
 import '../../features/catalog014/view/shared_preferences_once_page.dart';
 import '../../features/catalog014/view/shared_preferences_simple_page.dart';
 import '../../features/catalog015/hive_page.dart';
-
+import '../../features/catalog016/polling_page.dart';
 
 import '../../features/catalog101/tutorial_page.dart';
 import '../../features/catalog102/responsive_page.dart';
@@ -33,7 +34,6 @@ import '../../features/catalog202/backkey_page.dart';
 
 import '../../features/catalog301/cupertino_sample_page.dart';
 import '../../features/catalog302/cupertino_scrollbar_page.dart';
-
 
 /// #008 画面遷移画面用
 import '../../features/catalog008/view/transition_simple_page.dart';
@@ -75,6 +75,7 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: SharedPreferencesSimpleRoute.page),
         AutoRoute(page: SharedPreferencesOnceRoute.page),
         AutoRoute(page: HiveRoute.page),
+        AutoRoute(page: PollingRoute.page),
 
         /// #008 画面遷移画面用
         AutoRoute(page: TransitionSimpleRoute.page),
