@@ -15,17 +15,6 @@ class GraphPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final ThemeData theme = Theme.of(context);
 
-    Widget getBottomTitle(double value, TitleMeta meta) {
-      final String day = days[value.toInt()];
-      return SideTitleWidget(
-        meta: meta,
-        child: Text(
-          day,
-          style: theme.textTheme.bodySmall?.copyWith(color: Colors.white),
-        ),
-      );
-    }
-
     return Padding(
       padding: const EdgeInsets.fromLTRB(8, 32, 8, 32),
       child: BarChart(
@@ -48,7 +37,8 @@ class GraphPage extends HookConsumerWidget {
             bottomTitles: AxisTitles(
               sideTitles: SideTitles(
                 showTitles: true,
-                getTitlesWidget: getBottomTitle,
+                getTitlesWidget: (double value, TitleMeta meta) =>
+                    _getBottomTitle(value, meta, theme),
               ),
             ),
             leftTitles: AxisTitles(
@@ -77,6 +67,21 @@ class GraphPage extends HookConsumerWidget {
             ]);
           }).toList(),
         ),
+      ),
+    );
+  }
+
+  Widget _getBottomTitle(
+    double value,
+    TitleMeta meta,
+    ThemeData theme,
+  ) {
+    final String day = days[value.toInt()];
+    return SideTitleWidget(
+      meta: meta,
+      child: Text(
+        day,
+        style: theme.textTheme.bodySmall?.copyWith(color: Colors.white),
       ),
     );
   }
