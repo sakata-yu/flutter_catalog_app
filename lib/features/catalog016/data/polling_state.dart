@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../core/network/response/mock_message.dart';

@@ -100,6 +100,12 @@ List<CatalogItem> commonCatalogItems = <CatalogItem>[
     detail: (BuildContext context) => context.l10n.polling_detail,
     route: const PollingRoute(),
   ),
+  CatalogItem(
+    title: (BuildContext context) => context.l10n.graph_title,
+    detail: (BuildContext context) => context.l10n.graph_detail,
+    route: const GraphRoute(),
+  ),
+
 ];
 
 List<CatalogItem> uiCatalogItems = <CatalogItem>[
