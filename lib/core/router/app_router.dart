@@ -25,6 +25,7 @@ import '../../features/catalog014/view/shared_preferences_once_page.dart';
 import '../../features/catalog014/view/shared_preferences_simple_page.dart';
 import '../../features/catalog015/hive_page.dart';
 import '../../features/catalog016/polling_page.dart';
+import '../../features/catalog017/graph_page.dart';
 
 import '../../features/catalog101/tutorial_page.dart';
 import '../../features/catalog102/responsive_page.dart';
@@ -76,6 +77,7 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: SharedPreferencesOnceRoute.page),
         AutoRoute(page: HiveRoute.page),
         AutoRoute(page: PollingRoute.page),
+        AutoRoute(page: GraphRoute.page),
 
         /// #008 画面遷移画面用
         AutoRoute(page: TransitionSimpleRoute.page),

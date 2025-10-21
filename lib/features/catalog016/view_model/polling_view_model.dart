@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:catalog_app_flutter/core/network/mock_api_client.dart';
 import 'package:catalog_app_flutter/features/catalog016/data/polling_manager.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

@@ -32,6 +32,8 @@
   "hive_detail": "Hiveを使ったローカルデータベース管理",
   "polling_title": "#016 Polling",
   "polling_detail": "Pollingの実装",
+  "graph_title": "#017 Graph",
+  "graph_detail": "Fl chartを使ったグラフの実装",
   "tutorial_title": "#101 チュートリアル画面",
   "tutorial_detail": "Lottieを使ったアニメーション",
   "responsive_title": "#102 レスポンシブUI",
