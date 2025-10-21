@@ -105,7 +105,11 @@ List<CatalogItem> commonCatalogItems = <CatalogItem>[
     detail: (BuildContext context) => context.l10n.graph_detail,
     route: const GraphRoute(),
   ),
-
+  CatalogItem(
+    title: (BuildContext context) => context.l10n.bluetooth_title,
+    detail: (BuildContext context) => context.l10n.bluetooth_detail,
+    route: const BluetoothRoute(),
+  ),
 ];
 
 List<CatalogItem> uiCatalogItems = <CatalogItem>[
