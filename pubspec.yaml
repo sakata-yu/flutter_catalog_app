@@ -31,6 +31,8 @@ dependencies:
   firebase_core: ^4.1.0
   hive_ce_flutter: ^2.3.2
   flutter_blue_plus: ^2.0.0
+  mobile_scanner: ^7.1.2
+  qr_flutter: ^4.1.0
 
   # Map / Location
   flutter_map: ^8.1.1

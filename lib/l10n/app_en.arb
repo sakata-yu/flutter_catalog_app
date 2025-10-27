@@ -36,6 +36,8 @@
   "graph_detail": "Graph",
   "bluetooth_title": "#018 Bluetooth",
   "bluetooth_detail": "Bluetooth",
+  "qr_code_title": "#019 QRCode",
+  "qr_code_detail": "QRCode",
   "tutorial_title": "#101 Tutorial Page",
   "tutorial_detail": "Animation with Lottie",
   "responsive_title": "#102 Responsive UI",

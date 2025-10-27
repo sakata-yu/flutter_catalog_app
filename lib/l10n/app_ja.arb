@@ -36,6 +36,8 @@
   "graph_detail": "Fl chartを使ったグラフの実装",
   "bluetooth_title": "#018 Bluetooth",
   "bluetooth_detail": "Bluetoothを使った端末間通信の実装",
+  "qr_code_title": "#019 QRCode",
+  "qr_code_detail": "QRコードの生成・読み取り機能の実装",
   "tutorial_title": "#101 チュートリアル画面",
   "tutorial_detail": "Lottieを使ったアニメーション",
   "responsive_title": "#102 レスポンシブUI",

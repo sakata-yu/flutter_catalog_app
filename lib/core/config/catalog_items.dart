@@ -110,6 +110,11 @@ List<CatalogItem> commonCatalogItems = <CatalogItem>[
     detail: (BuildContext context) => context.l10n.bluetooth_detail,
     route: const BluetoothRoute(),
   ),
+  CatalogItem(
+    title: (BuildContext context) => context.l10n.qr_code_title,
+    detail: (BuildContext context) => context.l10n.qr_code_detail,
+    route: const QrCodeRoute(),
+  ),
 ];
 
 List<CatalogItem> uiCatalogItems = <CatalogItem>[

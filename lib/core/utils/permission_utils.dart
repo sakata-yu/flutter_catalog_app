@@ -4,7 +4,7 @@ import 'package:permission_handler/permission_handler.dart';
 
 Future<bool> requestBluetoothPermission() async {
   if (Platform.isAndroid) {
-    final Map<Permission, PermissionStatus> status = await [
+    final Map<Permission, PermissionStatus> status = await <Permission>[
       Permission.bluetooth,
       Permission.bluetoothConnect,
       Permission.bluetoothScan,
