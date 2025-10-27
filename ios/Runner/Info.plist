@@ -55,5 +55,9 @@
   <string>音声認識を使用します</string>
   <key>NSFaceIDUsageDescription</key>
   <string>生体認証のためにFace IDを使用します</string>
+  <key>NSBluetoothAlwaysUsageDescription</key>
+  <string>このアプリでは Bluetooth を使ってデバイスと通信します。</string>
+  <key>NSBluetoothPeripheralUsageDescription</key>
+  <string>Bluetooth 接続のためにアクセスが必要です。</string>
 </dict>
 </plist>
