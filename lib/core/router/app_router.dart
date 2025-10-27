@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
+import '../../features/catalog019/view/qr_code_read_page.dart';
 /**
  * ルーティング設定するページ一覧
  */
@@ -27,6 +28,9 @@ import '../../features/catalog015/hive_page.dart';
 import '../../features/catalog016/polling_page.dart';
 import '../../features/catalog017/graph_page.dart';
 import '../../features/catalog018/bluetooth_page.dart';
+import '../../features/catalog019/qr_code_page.dart';
+import '../../features/catalog019/view/qr_code_read_page.dart';
+
 
 import '../../features/catalog101/tutorial_page.dart';
 import '../../features/catalog102/responsive_page.dart';
@@ -80,6 +84,8 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: PollingRoute.page),
         AutoRoute(page: GraphRoute.page),
         AutoRoute(page: BluetoothRoute.page),
+        AutoRoute(page: QrCodeRoute.page),
+        AutoRoute(page: QrCodeReadRoute.page),
 
         /// #008 画面遷移画面用
         AutoRoute(page: TransitionSimpleRoute.page),
